@@ -2,34 +2,43 @@ body {
   background-color: #E1F5FE;
 }
 
-h3 {
-  margin: 0;
-}
-
 .container {
   width  : 100%;
   height : 250px;
 }
 
+
 #container-1,
 #container-3 {
   background-color: #E1F5FE;
 }
-
 #container-2,
 #container-4 {
   background-color: #B3E5FC;
 }
 
+
 #container-1 {
   background-image    : url('../img/sun.jpg');
   background-position : center;
   background-size     : cover;
-  height              : 250px;
+  height              : 350px;
   position            : relative;
 }
 
-#linkedin {
-  position : absolute;
-  bottom   : 0;
+
+#container-2 {
+  position: relative;
+}
+#container-2 p {
+  left         : 50%;
+  margin       : 0;
+  margin-right : -50%;
+  position     : absolute;
+  top          : 50%;
+  transform    : translate(-50%, -50%);
+}
+#container-2 p a {
+  font-size       : 48px;
+  text-decoration : none;
 }
