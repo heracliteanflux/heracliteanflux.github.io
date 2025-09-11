@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 :root
 {
-  --font-family   : "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family   : "UI Sans", Lato, Helvetica, Arial, sans-serif;
   --line-color    : #ddd;
   --muted-color   : #777;
-  --primary-color : #2d9cdb;
+  --primary-color : #4682B4; /* #2d9cdb; */
   --text-color    : #333;
 
   --line-x        : 5px; /* line horizontal offset */
@@ -11,11 +13,77 @@
   --dot-size      : 10px;
 }
 
+/**************************************************
+ *
+ * common styles
+ *
+ **************************************************/
+img
+{
+  height    : 100%;
+  min-width : 300px;
+  width     : 100%;
+}
+a
+{
+  color           : black;
+  text-decoration : none;
+}
+ul
+{
+  list-style-type : none;
+  margin          : 0;
+  padding-left    : 1.25rem;
+}
+
+li
+{
+  margin-bottom : 0.1rem;
+}
+
+/**************************************************
+ *
+ * 
+ *
+ **************************************************/
+.description
+{
+  color       : var(--primary-color);
+  font-size   : 1.25rem;
+  font-weight : 375;
+  margin-top  : 0rem;
+  padding     : 0;
+}
+.title
+{
+  color          : var(--primary-color);
+  font-weight    : 600;
+  font-size      : 2.25rem;
+  margin         : 0;
+  text-transform : uppercase;
+}
+.section
+{
+  padding-bottom : 20px;
+}
+
+/**************************************************
+ *
+ * layout
+ *
+ **************************************************/
+
+html
+{
+  font-size : 10px;
+}
+
 body
 {
   background  : #fafafa;
   color       : var(--text-color);
   font-family : var(--font-family);
+  font-size   : 10px;
   line-height : 1.6;
   margin      : 0;
   padding     : 0;
@@ -29,6 +97,66 @@ body
   margin        : 2rem auto;
   max-width     : 960px;
   padding       : 2rem;
+
+  display               : grid;
+  gap                   : 0px;
+  grid-template-columns : 1fr 3fr;
+  grid-template-rows    : 1fr auto;
+}
+@media only screen and (max-width: 768px)
+{
+  .resume
+  {
+    grid-template-columns :  1fr;
+    width                 : 100%;
+  }
+}
+
+.left {
+  background : #DAE7F1;
+}
+.bot {
+  min-height : 100vh;
+}
+.q1 {
+  grid-column : 1;
+  /* max-height  : 300px; */
+}
+.q2 {
+  grid-column :  2/5;
+  /* max-height  : 300px; */
+  min-height  : 100px;
+  padding     : 20px;
+}
+.q3 {
+  grid-column :    1;
+  padding     : 20px;
+}
+.q4 {
+  border-top  : solid 1px #DAE7F1;
+  grid-column :                 2/5;
+  padding     :                20px;
+}
+
+.name_frst {
+  color          : var(--primary-color);
+  display        : block;
+  font-size      : clamp(2rem, 8vw, 4rem);
+  font-weight    : 400;
+  margin-bottom  : -3rem;
+  text-transform : uppercase;
+}
+.name_last {
+  color          : var(--primary-color);
+  display        : block;
+  font-size      : clamp(2.5rem, 15vw, 7rem);
+  font-weight    : 700;
+  text-transform : uppercase;
+}
+.profile_title {
+  font-size      : 1.5rem;
+  font-weight    : 400;
+  text-transform : uppercase;
 }
 
 /**************************************************
@@ -84,7 +212,7 @@ body
 {
   display               : grid;
   gap                   : 2rem;
-  grid-template-columns : 200px 1fr;
+  grid-template-columns : 150px 1fr;
   margin-bottom         : 2rem;
   position              : relative;
 }
@@ -141,15 +269,16 @@ body
   margin     : 0 0 0.75rem;
 }
 
-ul
+/**************************************************
+ *
+ *    Q3
+ *
+ **************************************************/
+.skills li
 {
-  margin       : 0;
-  padding-left : 1.25rem;
-}
-
-li
-{
-  margin-bottom : 0.5rem;
+  color       : var(--primary-color);
+  font-size   : 1rem;
+  font-weight : 400;
 }
 
 /**************************************************
@@ -157,7 +286,7 @@ li
  * responsive
  *
  **************************************************/
-@media (max-width 700px)
+@media (max-width: 700px)
 {
   .entry
   {
@@ -179,7 +308,7 @@ li
 
 /**************************************************
  *
- * 
+ * pdf controls
  *
  **************************************************/
 .pdf-controls
@@ -213,4 +342,39 @@ li
 {
   background : #18648f;
   transform  : translateY(0);
+}
+
+
+
+/**************************************************
+ *
+ * 
+ *
+ **************************************************/
+.download_button {
+  display    : block;
+  font-size  : 1.6rem;
+  margin-top : 1rem;
+}
+.download_button:hover {
+  color : var(--primary-color);
+}
+@media only screen and (max-width: 768px) {
+  .profile_container {
+    flex-direction : column;
+  }
+}
+
+.experience-item {
+  list-style-type : disc;
+}
+.experience-item > li:before {
+	content: "";
+	background: #231f20;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	position: absolute;
+	top: 6px;
+	left: 2px;
 }
