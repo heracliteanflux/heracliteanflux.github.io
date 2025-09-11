@@ -1,0 +1,37 @@
+@media print
+{
+  body
+  {
+    background : white;
+    margin     : 0;
+  }
+
+  .resume
+  {
+    border-radius : 0;
+    box-shadow    : none;
+    max-width     : 100%;
+    padding       : 1in;
+  }
+
+  .entry-content::before
+  {
+    background : #444; /* darker line */
+  }
+
+  .timeline-dot
+  {
+    background : #000; /* black dot */
+  }
+
+  .pdf-controls
+  {
+    display : none !important;
+  }
+
+  @page
+  {
+    margin : 0;
+    size   : A4; /* or Letter */
+  }
+}

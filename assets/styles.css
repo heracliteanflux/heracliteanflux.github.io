@@ -1,0 +1,216 @@
+:root
+{
+  --font-family   : "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --line-color    : #ddd;
+  --muted-color   : #777;
+  --primary-color : #2d9cdb;
+  --text-color    : #333;
+
+  --line-x        : 5px; /* line horizontal offset */
+  --line-width    : 2px; /* line thickness */
+  --dot-size      : 10px;
+}
+
+body
+{
+  background  : #fafafa;
+  color       : var(--text-color);
+  font-family : var(--font-family);
+  line-height : 1.6;
+  margin      : 0;
+  padding     : 0;
+}
+
+.resume
+{
+  background    : white;
+  border-radius : 8px;
+  box-shadow    : 0 4px 10px rgba(0,0,0,0.25);
+  margin        : 2rem auto;
+  max-width     : 960px;
+  padding       : 2rem;
+}
+
+/**************************************************
+ *
+ * header
+ *
+ **************************************************/
+.resume-header .name
+{
+  font-size : 2.25rem;
+  margin    : 0;
+}
+
+.resume-header .title
+{
+  color     : var(--primary-color);
+  font-size : 1.25rem;
+  margin    : 0.25rem 0 1rem;
+}
+
+.resume-header .summary
+{
+  color     : var(--muted-color);
+  font-size : 1rem;
+  margin    : 0;
+}
+
+/**************************************************
+ *
+ * section titles
+ *
+ **************************************************/
+.resume-section
+{
+  margin-top : 2rem;
+}
+
+.section-title
+{
+  font-size      : 0.9rem;
+  font-weight    : bold;
+  letter-spacing : 0.05rem;
+  margin         : 0 0 1rem;
+}
+
+
+/**************************************************
+ *
+ * timeline entries
+ *
+ **************************************************/
+.entry
+{
+  display               : grid;
+  gap                   : 2rem;
+  grid-template-columns : 200px 1fr;
+  margin-bottom         : 2rem;
+  position              : relative;
+}
+
+.entry-date
+{
+  color     : var(--muted-color);
+  font-size : 0.85rem;
+}
+
+.entry-content
+{
+  padding-left : 1.5rem;
+  position     : relative;
+}
+
+.entry-content::before
+{
+  background : var(--line-color); /* line color*/
+  bottom     : 0;                 /* line, where it ends */
+  content    : "";
+  left       : var(--line-x);     /* line horizontal position, relative to .entry-content */
+  position   : absolute;
+  top        : 0.4rem;                 /* line, where it starts */
+  width      : var(--line-width); /* line thickness */
+}
+
+.timeline-dot
+{
+  background    : var(--primary-color); /* dot color */
+  border-radius : 50%;                  /* dot shape - round */
+  height        : var(--dot-size);      /* dot diameter */
+                                        /* dot horizontal placement */
+  /* to center the dot over the line: dot.left = line.left - (dot.width / 2) + (line.width / 2) */
+  left          : calc(var(--line-x) - (var(--dot-size) / 2) + (var(--line-width) / 2));
+  position      : absolute;
+  top           : 0.4rem;               /* dot vertical placement */
+  width         : var(--dot-size);      /* dot diameter */
+  z-index       : 1;
+}
+
+.job-title,
+.degree
+{
+  font-weight : bold;
+  margin      : 0 0 0.25rem;
+}
+
+.company,
+.school
+{
+  color      : var(--muted-color);
+  font-style : italic;
+  margin     : 0 0 0.75rem;
+}
+
+ul
+{
+  margin       : 0;
+  padding-left : 1.25rem;
+}
+
+li
+{
+  margin-bottom : 0.5rem;
+}
+
+/**************************************************
+ *
+ * responsive
+ *
+ **************************************************/
+@media (max-width 700px)
+{
+  .entry
+  {
+    gap                   : 1rem;
+    grid-template-columns : 1fr;
+  }
+
+  .entry-content
+  {
+    padding-left : 0;
+  }
+
+  .entry-content::before,
+  .timeline-dot
+  {
+    display : none;
+  }
+}
+
+/**************************************************
+ *
+ * 
+ *
+ **************************************************/
+.pdf-controls
+{
+  margin-top : 2rem;
+  text-align : center;
+}
+
+.pdf-controls button
+{
+  background    : var(--primary-color);
+  border        : none;
+  border-radius : 6px;
+  color         : white;
+  cursor        : pointer;
+  font-family   : var(--font-family);
+  font-size     : 0.95rem;
+  font-weight   : 600;
+  margin        : 0.5rem;
+  padding       : 0.6rem 1.2rem;
+  transition    : background 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-controls button:hover
+{
+  background : #1f7fb8;
+  transform  : translateY(-2px);
+}
+
+.pdf-controls button:active
+{
+  background : #18648f;
+  transform  : translateY(0);
+}

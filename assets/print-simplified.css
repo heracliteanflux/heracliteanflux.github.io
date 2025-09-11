@@ -1,0 +1,45 @@
+/* print.css — Simplified single-column */
+@media print {
+  body {
+    background: white;
+    margin: 0;
+  }
+
+  .resume {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 1in;
+    max-width: 100%;
+  }
+
+  /* Collapse to single column */
+  .entry {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .entry-date {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Remove timeline visuals */
+  .entry-content {
+    padding-left: 0;
+  }
+  .entry-content::before,
+  .timeline-dot {
+    display: none !important;
+  }
+
+  .pdf-controls
+  {
+    display : none !important;
+  }
+
+  /* Force page size */
+  @page {
+    size: A4; /* or Letter */
+    margin: 0;
+  }
+}
