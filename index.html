@@ -33,6 +33,7 @@
     |
     +-------------------------------------------------------------------------------------------------->
 <body>
+
   <main class="resume">
 
     <!--+--------------------------------------------------
@@ -65,7 +66,14 @@
 
         <p class="profile_title"></p>
         <p class="profile_description">Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX</p>
-        <a class="download_button" href="./assets/pdf/resume.pdf" download="resume.pdf">Download</a>
+        
+        <!-- ✅ New unified download area -->
+        <div class="download-buttons pdf-controls">
+          <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf">Download</a>
+          <a class="btn-download" onclick="printResume('timeline')">PDF (Timeline)</a>
+          <a class="btn-download" onclick="printResume('simplified')">PDF (Simplified)</a>
+        </div>
+
       </div>
     </header>
 
@@ -274,10 +282,6 @@
     </div>
   </main>
 
-  <div class="pdf-controls">
-    <button onclick="printResume('timeline'  )">Download PDF (Timeline)</button>
-    <button onclick="printResume('simplified')">Download PDF (Simplified)</button>
-  </div>
   <script>
     function printResume (mode)
     {

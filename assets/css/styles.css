@@ -1,380 +1,384 @@
+/* ========================================================================== */
+/*  Dave Friedman — Resume Stylesheet                                         */
+/*  Shimmering Dust: slow ramps, desynced, no particles on resume             */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/*  0) Imports                                                                 */
+/* ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-:root
-{
+/* ========================================================================== */
+/*  1) Variables & Theming                                                     */
+/* ========================================================================== */
+:root{
   --font-family   : "UI Sans", Lato, Helvetica, Arial, sans-serif;
-  --line-color    : #ddd;
-  --muted-color   : #777;
-  --primary-color : #4682B4; /* #2d9cdb; */
   --text-color    : #333;
+  --primary-color : #4682B4;   /* SteelBlue */
+  --muted-color   : #777;
+  --line-color    : #ddd;
 
-  --line-x        : 5px; /* line horizontal offset */
-  --line-width    : 2px; /* line thickness */
-  --dot-size      : 10px;
-}
+  --line-x     : 5px;
+  --line-width : 2px;
+  --dot-size   : 10px;
 
-/**************************************************
- *
- * common styles
- *
- **************************************************/
-img
-{
-  height    : 100%;
-  min-width : 300px;
-  width     : 100%;
-}
-a
-{
-  color           : black;
-  text-decoration : none;
-}
-ul
-{
-  list-style-type : none;
-  margin          : 0;
-  padding-left    : 1.25rem;
-}
+  /* Steely blues (dominant) */
+  --dust-steel-1 : rgba(180,196,210,0.72);
+  --dust-steel-2 : rgba(120,140,160,0.60);
+  --dust-steel-3 : rgba(150,170,190,0.66);
 
-li
-{
-  margin-bottom : 0.1rem;
+  /* Rare cyan/ocean accents */
+  --dust-cyan-core : rgba(72,173,210,0.42);
+  --dust-cyan-halo : rgba(72,173,210,0.12);
+
+  /* Rare large blues */
+  --dust-blue-core : rgba(70,130,180,0.36);
+  --dust-blue-halo : rgba(70,130,180,0.10);
+
+  /* Layer base opacities */
+  --mid-op  : 0.50;
+  --near-op : 0.58;
+
+  /* Slow glow ranges */
+  --twinkle-min-mid  : 0.26;
+  --twinkle-max-mid  : 0.78;
+  --twinkle-min-near : 0.30;
+  --twinkle-max-near : 0.84;
 }
 
-/**************************************************
- *
- * 
- *
- **************************************************/
-.description
-{
-  color       : var(--primary-color);
-  font-size   : 1.25rem;
-  font-weight : 375;
-  margin-top  : 0rem;
-  padding     : 0;
+/* ========================================================================== */
+/*  2) Base / Reset                                                            */
+/* ========================================================================== */
+html{ font-size:10px; overscroll-behavior:none; }
+body{
+  background-color:#fafafa;
+  color:var(--text-color);
+  font-family:var(--font-family);
+  font-size:10px;
+  line-height:1.6;
+  margin:0; padding:0;
+  position:relative;  /* anchor for stacking above bg layers */
+  overflow-x:clip;
 }
-.title
-{
-  color          : var(--primary-color);
-  font-weight    : 600;
-  font-size      : 2.25rem;
-  margin         : 0;
-  text-transform : uppercase;
+img{height:100%;min-width:300px;width:100%;}
+a{color:black;text-decoration:none;}
+ul{list-style-type:none;margin:0;padding-left:1.25rem;}
+li{margin-bottom:0.1rem;}
+
+/* ========================================================================== */
+/*  3) Layout (Grid & Card)                                                    */
+/* ========================================================================== */
+.resume{
+  background:#fff;
+  border-radius:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  margin:2rem auto;
+  max-width:960px;
+  padding:2rem;
+
+  display:grid; gap:0;
+  grid-template-columns:1fr 3fr;
+  grid-template-rows:1fr auto;
+
+  position:relative;
+  z-index:2; /* ensure content sits above all background layers */
 }
-.section
-{
-  padding-bottom : 20px;
+@media (max-width:768px){
+  .resume{grid-template-columns:1fr;width:100%;}
+}
+.left{background:#DAE7F1;}
+.bot{min-height:100vh;}
+.q1{grid-column:1;}
+.q2{grid-column:2/5;min-height:100px;padding:20px;}
+.q3{grid-column:1;padding:20px;}
+.q4{border-top:solid 1px #DAE7F1;grid-column:2/5;padding:20px;}
+
+/* ========================================================================== */
+/*  4) Typography & Content                                                    */
+/* ========================================================================== */
+.description{color:var(--primary-color);font-size:1.25rem;font-weight:375;margin-top:0;padding:0;}
+.title{color:var(--primary-color);font-weight:600;font-size:2.25rem;margin:0;text-transform:uppercase;}
+.section{padding-bottom:20px;}
+.name_frst{color:var(--primary-color);display:block;font-size:clamp(2rem,8vw,4rem);font-weight:400;margin-bottom:-3rem;text-transform:uppercase;}
+.name_last{color:var(--primary-color);display:block;font-size:clamp(2.5rem,15vw,7rem);font-weight:700;text-transform:uppercase;}
+.profile_title{font-size:1.5rem;font-weight:400;text-transform:uppercase;}
+
+/* ========================================================================== */
+/*  5) Header                                                                  */
+/* ========================================================================== */
+.resume-header .name{font-size:2.25rem;margin:0;}
+.resume-header .title{color:var(--primary-color);font-size:1.25rem;margin:0.25rem 0 1rem;}
+.resume-header .summary{color:var(--muted-color);font-size:1rem;margin:0;}
+
+/* ========================================================================== */
+/*  6) Section Titles                                                          */
+/* ========================================================================== */
+.resume-section{margin-top:2rem;}
+.section-title{font-size:0.9rem;font-weight:bold;letter-spacing:0.05rem;margin:0 0 1rem;}
+
+/* ========================================================================== */
+/*  7) Timeline                                                                */
+/* ========================================================================== */
+.entry{ display:grid; gap:2rem; grid-template-columns:150px 1fr; margin-bottom:2rem; position:relative; }
+.entry-date{ color:var(--muted-color); font-size:0.85rem; }
+.entry-content{ padding-left:1.5rem; position:relative; }
+.entry-content::before{
+  background:var(--line-color); bottom:0; content:""; left:var(--line-x);
+  position:absolute; top:0.4rem; width:var(--line-width);
+}
+.timeline-dot{
+  background:var(--primary-color); border-radius:50%; height:var(--dot-size);
+  left:calc(var(--line-x) - (var(--dot-size)/2) + (var(--line-width)/2));
+  position:absolute; top:0.4rem; width:var(--dot-size); z-index:1;
+}
+.job-title,.degree{font-weight:bold;margin:0 0 0.25rem;}
+.company,.school{color:var(--muted-color);font-style:italic;margin:0 0 0.75rem;}
+
+/* ========================================================================== */
+/*  8) Skills                                                                  */
+/* ========================================================================== */
+.skills li{color:var(--primary-color);font-size:1rem;font-weight:400;}
+
+/* ========================================================================== */
+/*  9) Responsive                                                              */
+/* ========================================================================== */
+@media (max-width:700px){
+  .entry{gap:1rem;grid-template-columns:1fr;}
+  .entry-content{padding-left:0;}
+  .entry-content::before,.timeline-dot{display:none;}
 }
 
-/**************************************************
- *
- * layout
- *
- **************************************************/
-
-html
-{
-  font-size : 10px;
+/* ========================================================================== */
+/* Download Buttons (new unified style)                                       */
+/* ========================================================================== */
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-body
-{
-  background  : #fafafa;
-  color       : var(--text-color);
-  font-family : var(--font-family);
-  font-size   : 10px;
-  line-height : 1.6;
-  margin      : 0;
-  padding     : 0;
+.btn-download {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none; /* keeps <a> looking like a button */
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.resume
-{
-  background    : white;
-  border-radius : 8px;
-  box-shadow    : 0 4px 10px rgba(0,0,0,0.25);
-  margin        : 2rem auto;
-  max-width     : 960px;
-  padding       : 2rem;
-
-  display               : grid;
-  gap                   : 0px;
-  grid-template-columns : 1fr 3fr;
-  grid-template-rows    : 1fr auto;
-}
-@media only screen and (max-width: 768px)
-{
-  .resume
-  {
-    grid-template-columns :  1fr;
-    width                 : 100%;
-  }
+.btn-download:hover {
+  background: #1f7fb8;
+  transform: translateY(-2px);
 }
 
-.left {
-  background : #DAE7F1;
-}
-.bot {
-  min-height : 100vh;
-}
-.q1 {
-  grid-column : 1;
-  /* max-height  : 300px; */
-}
-.q2 {
-  grid-column :  2/5;
-  /* max-height  : 300px; */
-  min-height  : 100px;
-  padding     : 20px;
-}
-.q3 {
-  grid-column :    1;
-  padding     : 20px;
-}
-.q4 {
-  border-top  : solid 1px #DAE7F1;
-  grid-column :                 2/5;
-  padding     :                20px;
+.btn-download:active {
+  background: #18648f;
+  transform: translateY(0);
 }
 
-.name_frst {
-  color          : var(--primary-color);
-  display        : block;
-  font-size      : clamp(2rem, 8vw, 4rem);
-  font-weight    : 400;
-  margin-bottom  : -3rem;
-  text-transform : uppercase;
-}
-.name_last {
-  color          : var(--primary-color);
-  display        : block;
-  font-size      : clamp(2.5rem, 15vw, 7rem);
-  font-weight    : 700;
-  text-transform : uppercase;
-}
-.profile_title {
-  font-size      : 1.5rem;
-  font-weight    : 400;
-  text-transform : uppercase;
+/* ========================================================================== */
+/* 11) Misc                                                                    */
+/* ========================================================================== */
+@media (max-width:768px){.profile_container{flex-direction:column;}}
+.experience-item{list-style-type:disc;}
+.experience-item>li:before{
+  content:""; background:#231f20; width:5px; height:5px; border-radius:50%;
+  position:absolute; top:6px; left:2px;
 }
 
-/**************************************************
- *
- * header
- *
- **************************************************/
-.resume-header .name
-{
-  font-size : 2.25rem;
-  margin    : 0;
+/* ========================================================================== */
+/* 12) Background Dust (Fixed, Desynced, Slow Ramps)                           */
+/*      Layers: FAR A (html::before), FAR B (html::after),                     */
+/*              MID (body::before), NEAR (body::after)                         */
+/*      NOTE: removed .resume::before to ensure ZERO specks over the card.     */
+/* ========================================================================== */
+
+/* Shared base for all dust layers */
+html::before, html::after, body::before, body::after{
+  content:"";
+  position:fixed; inset:0; pointer-events:none;
+  z-index:1; /* resume is 2 */
+  background-repeat:repeat;
+  will-change:background-position, opacity, transform;
+  transform:translateZ(0);
 }
 
-.resume-header .title
-{
-  color     : var(--primary-color);
-  font-size : 1.25rem;
-  margin    : 0.25rem 0 1rem;
+/* ---------- FAR A (dominant steely field + 1 rare large blue, 1 rare cyan) ---------- */
+html::before{
+  background-image:
+    /* micro/small/medium cores (steely) */
+    radial-gradient(circle at 12% 22%, var(--dust-steel-1) 0 0.7px, transparent 1.2px),
+    radial-gradient(circle at 78% 18%, var(--dust-steel-2) 0 1.1px, transparent 1.7px),
+    radial-gradient(circle at 20% 30%, var(--dust-steel-3) 0 1.0px, transparent 1.5px),
+    radial-gradient(circle at 70% 80%, var(--dust-steel-1) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 40% 60%, var(--dust-steel-2) 0 1.4px, transparent 2.0px),
+    /* halos */
+    radial-gradient(circle at 12% 22%, rgba(180,196,210,0.16) 0 0.9px, transparent 3.2px),
+    radial-gradient(circle at 78% 18%, rgba(120,140,160,0.14) 0 1.3px, transparent 3.6px),
+    radial-gradient(circle at 20% 30%, rgba(150,170,190,0.14) 0 1.2px, transparent 3.4px),
+    radial-gradient(circle at 70% 80%, rgba(180,196,210,0.14) 0 1.4px, transparent 3.8px),
+    radial-gradient(circle at 40% 60%, rgba(120,140,160,0.12) 0 1.6px, transparent 4.0px),
+    /* RARE large blue + halo (1) */
+    radial-gradient(circle at 25% 45%, var(--dust-blue-core) 0 4.2px, transparent 6.2px),
+    radial-gradient(circle at 25% 45%, var(--dust-blue-halo) 0 7.0px, transparent 14px),
+    /* RARE cyan accent + halo (1) */
+    radial-gradient(circle at 60% 25%, var(--dust-cyan-core) 0 2.4px, transparent 4.4px),
+    radial-gradient(circle at 60% 25%, var(--dust-cyan-halo) 0 5.0px, transparent 11px);
+  background-size:
+    180px 180px, 220px 220px, 180px 180px, 220px 220px, 260px 260px,
+    180px 180px, 220px 220px, 180px 180px, 220px 220px, 260px 260px,
+    580px 580px, 580px 580px,
+    360px 360px, 360px 360px;
+  background-position:
+    14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px,
+    14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px,
+    80px 200px, 80px 200px,
+    200px 60px, 200px 60px;
+  animation: far-wobble-a 140s linear infinite;
 }
 
-.resume-header .summary
-{
-  color     : var(--muted-color);
-  font-size : 1rem;
-  margin    : 0;
+/* ---------- FAR B (secondary steely field; no large dots, 1 rare cyan) ---------- */
+html::after{
+  background-image:
+    radial-gradient(circle at 22% 12%, var(--dust-steel-1) 0 0.7px, transparent 1.1px),
+    radial-gradient(circle at 68% 28%, var(--dust-steel-2) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 10% 70%, var(--dust-steel-3) 0 1.4px, transparent 2.0px),
+    radial-gradient(circle at 77% 84%, var(--dust-steel-1) 0 1.6px, transparent 2.3px),
+    /* halos */
+    radial-gradient(circle at 22% 12%, rgba(180,196,210,0.16) 0 0.9px, transparent 3.0px),
+    radial-gradient(circle at 68% 28%, rgba(120,140,160,0.14) 0 1.4px, transparent 3.6px),
+    radial-gradient(circle at 10% 70%, rgba(150,170,190,0.14) 0 1.6px, transparent 3.8px),
+    radial-gradient(circle at 77% 84%, rgba(180,196,210,0.14) 0 1.8px, transparent 4.2px),
+    /* RARE cyan accent (1) */
+    radial-gradient(circle at 46% 36%, var(--dust-cyan-core) 0 2.0px, transparent 3.6px);
+  background-size:
+    190px 190px, 230px 230px, 260px 260px, 300px 300px,
+    190px 190px, 230px 230px, 260px 260px, 300px 300px,
+    340px 340px;
+  background-position:
+    24px 18px, 80px 160px, 10px 90px, 130px 40px,
+    24px 18px, 80px 160px, 10px 90px, 130px 40px,
+    60px 120px;
+  animation: far-wobble-b 125s linear infinite;
 }
 
-/**************************************************
- *
- * section titles
- *
- **************************************************/
-.resume-section
-{
-  margin-top : 2rem;
+/* ---------- MID (few mid-size blues; 1 rare cyan) ---------- */
+body::before{
+  background-image:
+    radial-gradient(circle at 15% 75%, var(--dust-steel-3) 0 1.0px, transparent 1.7px),
+    radial-gradient(circle at 80% 15%, var(--dust-steel-1) 0 1.3px, transparent 2.1px),
+    radial-gradient(circle at 52% 42%, var(--dust-steel-2) 0 1.6px, transparent 2.4px),
+    /* halos */
+    radial-gradient(circle at 15% 75%, rgba(150,170,190,0.16) 0 1.2px, transparent 3.6px),
+    radial-gradient(circle at 80% 15%, rgba(180,196,210,0.16) 0 1.5px, transparent 3.8px),
+    radial-gradient(circle at 52% 42%, rgba(120,140,160,0.14) 0 1.8px, transparent 4.2px),
+    /* RARE mid large blues (2) + halos */
+    radial-gradient(circle at 35% 65%, var(--dust-blue-core) 0 2.8px, transparent 4.6px),
+    radial-gradient(circle at 60% 10%, var(--dust-blue-core) 0 3.0px, transparent 4.8px),
+    radial-gradient(circle at 35% 65%, var(--dust-blue-halo) 0 5.0px, transparent 9.8px),
+    radial-gradient(circle at 60% 10%, var(--dust-blue-halo) 0 5.4px, transparent 10.2px),
+    /* RARE cyan (1) */
+    radial-gradient(circle at 10% 50%, var(--dust-cyan-core) 0 2.2px, transparent 4.0px);
+  background-size:
+    160px 160px, 200px 200px, 230px 230px,
+    160px 160px, 200px 200px, 230px 230px,
+    320px 320px, 340px 340px, 320px 320px, 340px 340px,
+    340px 340px;
+  background-position:
+    40px 40px, 100px 0, 0 100px,
+    40px 40px, 100px 0, 0 100px,
+    50px 220px, 140px 20px, 50px 220px, 140px 20px,
+    180px 70px;
+  opacity:var(--mid-op);
+  animation:
+    drift-mid         74s linear infinite,
+    twinkle-glow-mid  22s infinite;
 }
 
-.section-title
-{
-  font-size      : 0.9rem;
-  font-weight    : bold;
-  letter-spacing : 0.05rem;
-  margin         : 0 0 1rem;
+/* ---------- NEAR (closest field; 1–2 large blues; 1 rare cyan) ---------- */
+body::after{
+  background-image:
+    radial-gradient(circle at 30% 20%, var(--dust-steel-2) 0 1.1px, transparent 1.9px),
+    radial-gradient(circle at 85% 70%, var(--dust-steel-1) 0 1.5px, transparent 2.3px),
+    radial-gradient(circle at 62% 18%, var(--dust-steel-3) 0 1.9px, transparent 2.7px),
+    /* halos */
+    radial-gradient(circle at 30% 20%, rgba(120,140,160,0.16) 0 1.3px, transparent 3.9px),
+    radial-gradient(circle at 85% 70%, rgba(180,196,210,0.16) 0 1.7px, transparent 4.3px),
+    radial-gradient(circle at 62% 18%, rgba(150,170,190,0.14) 0 2.1px, transparent 4.7px),
+    /* RARE near large blues (2) + halos */
+    radial-gradient(circle at 40% 40%, var(--dust-blue-core) 0 3.6px, transparent 5.6px),
+    radial-gradient(circle at 55% 60%, var(--dust-blue-core) 0 4.2px, transparent 6.6px),
+    radial-gradient(circle at 40% 40%, var(--dust-blue-halo) 0 6.6px, transparent 12px),
+    radial-gradient(circle at 55% 60%, var(--dust-blue-halo) 0 7.2px, transparent 14px),
+    /* RARE cyan (1) */
+    radial-gradient(circle at 20% 70%, var(--dust-cyan-core) 0 2.6px, transparent 4.6px);
+  background-size:
+    150px 150px, 190px 190px, 220px 220px,
+    150px 150px, 190px 190px, 220px 220px,
+    340px 340px, 380px 380px, 340px 340px, 380px 380px,
+    360px 360px;
+  background-position:
+    20px 120px, 120px 40px, 80px 80px,
+    20px 120px, 120px 40px, 80px 80px,
+    60px 180px, 150px 210px, 60px 180px, 150px 210px,
+    100px 260px;
+  opacity:var(--near-op);
+  animation:
+    drift-near         62s linear infinite,
+    twinkle-glow-near  20s infinite;
 }
 
-
-/**************************************************
- *
- * timeline entries
- *
- **************************************************/
-.entry
-{
-  display               : grid;
-  gap                   : 2rem;
-  grid-template-columns : 150px 1fr;
-  margin-bottom         : 2rem;
-  position              : relative;
+/* ========================================================================== */
+/* 13) Animations                                                              */
+/* ========================================================================== */
+/* far micro-wobbles (independent phases) */
+@keyframes far-wobble-a{
+  0%{background-position:14px 28px,120px 10px,0 0,60px 120px,120px 60px,14px 28px,120px 10px,0 0,60px 120px,120px 60px,80px 200px,80px 200px,200px 60px,200px 60px;}
+  50%{background-position:13px 27px,119px 9px,-1px -1px,59px 119px,119px 59px,13px 27px,119px 9px,-1px -1px,59px 119px,119px 59px,79px 199px,79px 199px,199px 59px,199px 59px;}
+  100%{background-position:14px 28px,120px 10px,0 0,60px 120px,120px 60px,14px 28px,120px 10px,0 0,60px 120px,120px 60px,80px 200px,80px 200px,200px 60px,200px 60px;}
+}
+@keyframes far-wobble-b{
+  0%{background-position:24px 18px,80px 160px,10px 90px,130px 40px,24px 18px,80px 160px,10px 90px,130px 40px,60px 120px;}
+  50%{background-position:23px 17px,79px 159px,9px 89px,128px 38px,23px 17px,79px 159px,9px 89px,128px 38px,59px 119px;}
+  100%{background-position:24px 18px,80px 160px,10px 90px,130px 40px,24px 18px,80px 160px,10px 90px,130px 40px,60px 120px;}
 }
 
-.entry-date
-{
-  color     : var(--muted-color);
-  font-size : 0.85rem;
+/* slow-ramp glow (long brighten + dwell + long dim) */
+@keyframes twinkle-glow-mid{
+  0%  {opacity:var(--twinkle-min-mid);  animation-timing-function:cubic-bezier(0.30,0.00,0.15,1.00);}
+  46% {opacity:var(--twinkle-max-mid);}
+  62% {opacity:var(--twinkle-max-mid);  animation-timing-function:cubic-bezier(0.30,0.00,0.15,1.00);}
+  100%{opacity:var(--twinkle-min-mid);}
+}
+@keyframes twinkle-glow-near{
+  0%  {opacity:var(--twinkle-min-near); animation-timing-function:cubic-bezier(0.28,0.00,0.14,1.00);}
+  42% {opacity:var(--twinkle-max-near);}
+  60% {opacity:var(--twinkle-max-near); animation-timing-function:cubic-bezier(0.28,0.00,0.14,1.00);}
+  100%{opacity:var(--twinkle-min-near);}
 }
 
-.entry-content
-{
-  padding-left : 1.5rem;
-  position     : relative;
+/* opposed slow drifts (parallax) */
+@keyframes drift-mid{
+  0%{background-position:40px 40px,100px 0,0 100px,40px 40px,100px 0,0 100px,50px 220px,140px 20px,50px 220px,140px 20px,180px 70px;}
+  100%{background-position:-260px -200px,-160px -240px,-200px -160px,-260px -200px,-160px -240px,-200px -160px,-220px -260px,-180px -200px,-220px -260px,-180px -200px,-300px -240px;}
+}
+@keyframes drift-near{
+  0%{background-position:20px 120px,120px 40px,80px 80px,20px 120px,120px 40px,80px 80px,60px 180px,150px 210px,60px 180px,150px 210px,100px 260px;}
+  100%{background-position:300px 260px,220px 300px,260px 220px,300px 260px,220px 300px,260px 220px,320px 300px,280px 320px,320px 300px,280px 320px,260px 360px;}
 }
 
-.entry-content::before
-{
-  background : var(--line-color); /* line color*/
-  bottom     : 0;                 /* line, where it ends */
-  content    : "";
-  left       : var(--line-x);     /* line horizontal position, relative to .entry-content */
-  position   : absolute;
-  top        : 0.4rem;                 /* line, where it starts */
-  width      : var(--line-width); /* line thickness */
+/* ========================================================================== */
+/* 14) Accessibility & Print                                                   */
+/* ========================================================================== */
+@media (prefers-reduced-motion:reduce){
+  html::before,html::after,body::before,body::after{animation:none !important;background-attachment:fixed;}
 }
-
-.timeline-dot
-{
-  background    : var(--primary-color); /* dot color */
-  border-radius : 50%;                  /* dot shape - round */
-  height        : var(--dot-size);      /* dot diameter */
-                                        /* dot horizontal placement */
-  /* to center the dot over the line: dot.left = line.left - (dot.width / 2) + (line.width / 2) */
-  left          : calc(var(--line-x) - (var(--dot-size) / 2) + (var(--line-width) / 2));
-  position      : absolute;
-  top           : 0.4rem;               /* dot vertical placement */
-  width         : var(--dot-size);      /* dot diameter */
-  z-index       : 1;
-}
-
-.job-title,
-.degree
-{
-  font-weight : bold;
-  margin      : 0 0 0.25rem;
-}
-
-.company,
-.school
-{
-  color      : var(--muted-color);
-  font-style : italic;
-  margin     : 0 0 0.75rem;
-}
-
-/**************************************************
- *
- *    Q3
- *
- **************************************************/
-.skills li
-{
-  color       : var(--primary-color);
-  font-size   : 1rem;
-  font-weight : 400;
-}
-
-/**************************************************
- *
- * responsive
- *
- **************************************************/
-@media (max-width: 700px)
-{
-  .entry
-  {
-    gap                   : 1rem;
-    grid-template-columns : 1fr;
-  }
-
-  .entry-content
-  {
-    padding-left : 0;
-  }
-
-  .entry-content::before,
-  .timeline-dot
-  {
-    display : none;
-  }
-}
-
-/**************************************************
- *
- * pdf controls
- *
- **************************************************/
-.pdf-controls
-{
-  margin-top : 2rem;
-  text-align : center;
-}
-
-.pdf-controls button
-{
-  background    : var(--primary-color);
-  border        : none;
-  border-radius : 6px;
-  color         : white;
-  cursor        : pointer;
-  font-family   : var(--font-family);
-  font-size     : 0.95rem;
-  font-weight   : 600;
-  margin        : 0.5rem;
-  padding       : 0.6rem 1.2rem;
-  transition    : background 0.3s ease, transform 0.2s ease;
-}
-
-.pdf-controls button:hover
-{
-  background : #1f7fb8;
-  transform  : translateY(-2px);
-}
-
-.pdf-controls button:active
-{
-  background : #18648f;
-  transform  : translateY(0);
-}
-
-
-
-/**************************************************
- *
- * 
- *
- **************************************************/
-.download_button {
-  display    : block;
-  font-size  : 1.6rem;
-  margin-top : 1rem;
-}
-.download_button:hover {
-  color : var(--primary-color);
-}
-@media only screen and (max-width: 768px) {
-  .profile_container {
-    flex-direction : column;
-  }
-}
-
-.experience-item {
-  list-style-type : disc;
-}
-.experience-item > li:before {
-	content: "";
-	background: #231f20;
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
-	position: absolute;
-	top: 6px;
-	left: 2px;
+@media print{
+  html::before,html::after,body::before,body::after{display:none !important;}
 }
