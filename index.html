@@ -8,12 +8,13 @@
     +-------------------------------------------------------------------------------------------------->
 <head>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3FHXK217B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    
     gtag('config', 'G-H3FHXK217B');
   </script>
 
@@ -24,7 +25,6 @@
   <link                       rel="stylesheet" type="text/css" href="assets/css/styles.css" />
   <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css" disabled />
   <link id="print-simplified" rel="stylesheet" type="text/css" href="assets/css/print-simplified.css" disabled />
-  <link                       rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <!--+--------------------------------------------------------------------------------------------------
@@ -67,11 +67,11 @@
         <p class="profile_title"></p>
         <p class="profile_description">Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX</p>
         
-        <!-- ✅ New unified download area -->
+        <!-- ✅ Unified download area -->
         <div class="download-buttons pdf-controls">
-          <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf">Download</a>
           <a class="btn-download" onclick="printResume('timeline')">PDF (Timeline)</a>
           <a class="btn-download" onclick="printResume('simplified')">PDF (Simplified)</a>
+          <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf">Download</a>
         </div>
 
       </div>
@@ -80,19 +80,35 @@
     <!--+--------------------------------------------------
         |
         |    lower left
-        |      education
-        |      skills
+        |      contact (standardized)
+        |      education (standardized)
+        |      skills (standardized)
+        |      coursework
         |
         +-------------------------------------------------->
     <div class="bot left q3">
 
-      <!-- EDUCATION -->
-      <section class="education section">
-        <h3 class="title">Education</h3>
-        <h4 class="description">Penn State University</h4>
+      <!-- CONTACT (standardized to Skills list spacing/type) -->
+      <section class="contact section">
+        <h3 class="title">Contact</h3>
+        <ul class="skill_list description contact-list">
+          <li><a href="tel:+14846538802">484.653.8802</a> <span class="contact-label"> • Phone</span></li>
+          <li><a href="mailto:davefriedman@pm.me">davefriedman@pm.me</a> <span class="contact-label"> • Email</span></li>
+          <li><a href="https://linkedin.com/in/heracliteanflux">linkedin.com/in/heracliteanflux</a> <span class="contact-label"> • LinkedIn</span></li>
+          <li><a href="https://github.com/heracliteanflux">github.com/heracliteanflux</a> <span class="contact-label"> • GitHub</span></li>
+          <li><a href="https://heracliteanflux.github.io/laptoplab/">heracliteanflux.github.io/laptoplab</a> <span class="contact-label"> • GitHub Pages</span></li>
+        </ul>
       </section>
 
-      <!-- SKILLS -->
+      <!-- EDUCATION (standardized to Skills list spacing/type) -->
+      <section class="education section">
+        <h3 class="title">Education</h3>
+        <ul class="skill_list description">
+          <li>Penn State University</li>
+        </ul>
+      </section>
+
+      <!-- SKILLS (unchanged content; standardized style already) -->
       <section class="skills section">
         <h3 class="title">Skills</h3>
         <ul class="skill_list description">
@@ -128,7 +144,7 @@
         </ul>
       </section>
 
-      <!-- COURSEWORK -->
+      <!-- COURSEWORK (unchanged) -->
       <section class="skills section">
         <h3 class="title">Coursework</h3>
         <ul class="skill_list description">
