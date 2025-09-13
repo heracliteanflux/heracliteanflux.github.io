@@ -22,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Dave Friedman - Resume</title>
-  <link                       rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
   <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css" disabled />
   <link id="print-simplified" rel="stylesheet" type="text/css" href="assets/css/print-simplified.css" disabled />
 </head>
@@ -44,7 +44,7 @@
 
     <!--+--------------------------------------------------
         |
-        |    Quadrant - upper left - PROFILE PIC
+        |    Q1 - upper left - PROFILE PIC
         |
         +-------------------------------------------------->
     <div class="top left q1">
@@ -53,7 +53,7 @@
 
     <!--+--------------------------------------------------
         |
-        |    Quadrant - upper right
+        |    Q2 - upper right
         |      name
         |      introduction
         |
@@ -61,34 +61,33 @@
     <header class="top rght q2">
 
       <!-- name -->
-        <h1>
-          <span class="name_frst">Dave</span>
-          <span class="name_last">Friedman</span>
-        </h1>
+      <h1>
+        <span class="name_frst">Dave</span>
+        <span class="name_last">Friedman</span>
+      </h1>
 
-        <p class="introduction">Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX</p>
-        
-        <!-- Download -->
-        <div class="download-buttons pdf-controls">
-          <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf">Download PDF</a>
-          <!-- <a class="btn-download" onclick="printResume('simplified')">PDF (Simplified)</a> -->
-          <!-- <a class="btn-download" onclick="printResume('timeline')">PDF (Timeline)</a> -->
-        </div>
+      <p class="introduction">Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX</p>
+      
+      <!-- Download -->
+      <div class="download-buttons pdf-controls">
+        <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf">Download PDF</a>
+        <!-- <a class="btn-download" onclick="printResume('simplified')">PDF (Simplified)</a> -->
+        <!-- <a class="btn-download" onclick="printResume('timeline')">PDF (Timeline)</a> -->
+      </div>
 
     </header>
 
     <!--+--------------------------------------------------
         |
-        |    lower left
-        |      contact (standardized)
-        |      education (standardized)
-        |      skills (standardized)
+        |    Q3 - lower left
+        |      contact
+        |      skills
         |      coursework
         |
         +-------------------------------------------------->
     <div class="bot left q3">
 
-      <!-- CONTACT (standardized to Skills list spacing/type) -->
+      <!-- CONTACT -->
       <section class="contact section">
         <h3 class="title">Contact</h3>
         <ul class="skill_list description contact-list">
@@ -100,7 +99,7 @@
         </ul>
       </section>
 
-      <!-- SKILLS (unchanged content; standardized style already) -->
+      <!-- SKILLS -->
       <section class="skills section">
         <h3 class="title">Skills</h3>
         <ul class="skill_list description">
@@ -136,7 +135,7 @@
         </ul>
       </section>
 
-      <!-- COURSEWORK (unchanged) -->
+      <!-- COURSEWORK -->
       <section class="skills section">
         <h3 class="title">Coursework</h3>
         <ul class="skill_list description">
@@ -169,127 +168,142 @@
 
     <!--+--------------------------------------------------
         |
-        |    lower right
+        |    Q4 - lower right
         |      work experience
+        |      education
         |      projects
         |
         +-------------------------------------------------->
     <div class="bot rght q4">
 
-      <!-- Work Experience -->
+      <!--+--------------------------------------------------------------------------------------------------
+          |
+          |    work
+          |
+          +-------------------------------------------------------------------------------------------------->
       <section class="resume-section">
         <h3 class="title">WORK EXPERIENCE</h3>
-        <div class="entry">
-          <div class="entry-date">OCTOBER 2021 - AUGUST 2024</div>
-          <div class="entry-content">
+
+        <div class="company-block">
+          <h4 class="company-name">2U, Lanham, MD (Remote)</h4>
+          <p class="company-sub">parent company of edX</p>
+
+          <div class="role">
             <div class="timeline-dot"></div>
-            <h4 class="job-title">Senior Instructional Specialist</h4>
-            <p class="company">2U</p>
-            <ul>
+            <h5 class="entry-title">Senior Instructional Specialist</h5>
+            <div class="entry-dates">Oct 2021 - Aug 2024</div>
+            <ul class="entry-bullets">
               <li>Provided expertise in computer security, artificial intelligence, and data and financial analytics and visualization tools and technologies</li>
-              <li>Provided Tier-2 technical support, along with troubleshooting and configuration assistance for computer and software-related issues</li>
+              <li>Provided Tier-2 technical support, along with troubleshooting and configuration assistance for computer- and software-related issues</li>
               <li>Delivered training sessions to instructional specialists and facilitated the coordination of day-to-day operations</li>
-              <li>Performed quality assurance checks in cooperation with the curriculum engineering and development team</li>
-              <li>Achieved a comprehensive student engagement score of 5.0/5 from 1 out of every 2 students supported, based on more than 2000 instructional sessions (written feedback is available to view on LinkedIn)</li>
+              <li>Performed quality assurance checks in cooperation with curriculum engineering and development</li>
+              <li>Achieved a comprehensive student engagement score of 5.0/5 from 1 out of every 2 students supported, based on more than 2000 instructional sessions (written feedback on LinkedIn)</li>
             </ul>
           </div>
-        </div>
-        <div class="entry">
-          <div class="entry-date">JULY 2021 - OCTOBER 2021</div>
-          <div class="entry-content">
+
+          <div class="role">
             <div class="timeline-dot"></div>
-            <h4 class="job-title">Cybersecurity Instructional Specialist</h4>
-            <p class="company">2U</p>
-            <ul></ul>
+            <h5 class="entry-title">Cybersecurity Instructional Specialist</h5>
+            <div class="entry-dates">Jul 2021 - Oct 2021</div>
+            <ul class="entry-bullets"></ul>
           </div>
-        </div>
-        <div class="entry">
-          <div class="entry-date">MAY 2020 - JULY 2021</div>
-          <div class="entry-content">
+
+          <div class="role last">
             <div class="timeline-dot"></div>
-            <h4 class="job-title">Cybersecurity Teaching Assistant</h4>
-            <p class="company">2U</p>
-            <ul>
+            <h5 class="entry-title">Cybersecurity Teaching Assistant</h5>
+            <div class="entry-dates">May 2020 - Jul 2021</div>
+            <ul class="entry-bullets">
               <li>Cybersecurity TA at the University of Pennsylvania's College of Liberal and Professional Studies</li>
-              <li>Assisted students with understanding cybersecurity and financial technologies concepts, tools, and techniques</li>
+              <li>Assisted students with cybersecurity and financial technologies concepts, tools, and techniques</li>
               <li>Provided guidance and support in troubleshooting technical issues during lab sessions</li>
               <li>Collaborated with instructors to develop curriculum materials and update course content</li>
               <li>Evaluated student assignments and final projects</li>
             </ul>
           </div>
         </div>
-        <div class="entry">
-          <div class="entry-date">JANUARY 2020 - MARCH 2020</div>
-          <div class="entry-content">
+
+        <div class="company-block">
+          <h4 class="company-name">Penn State University, State College, PA</h4>
+
+          <div class="role">
             <div class="timeline-dot"></div>
-            <h4 class="job-title">Enterprise Security Student Worker</h4>
-            <p class="company">Penn State's Office of Information Security</p>
-            <ul>
+            <h5 class="entry-title">Enterprise Security Student Worker <span class="role-org">Office of Information Security</span></h5>
+            <div class="entry-dates">Jan 2020 - Mar 2020</div>
+            <ul class="entry-bullets">
               <li>Performed log analysis of university systems via Splunk SIEM</li>
             </ul>
           </div>
-        </div>
-        <div class="entry">
-          <div class="entry-date">2019 - 2020</div>
-          <div class="entry-content">
+
+          <div class="role last">
             <div class="timeline-dot"></div>
-            <h4 class="job-title">Tutor in Mathematics and Spanish</h4>
-            <p class="company">Penn State's Morgan Academic Center for Student Athletes</p>
-            <ul>
+            <h5 class="entry-title">Tutor in Mathematics and Spanish <span class="role-org">Morgan Academic Center for Student-Athletes</span></h5>
+            <div class="entry-dates">2019 - 2020</div>
+            <ul class="entry-bullets">
               <li>Tutored Penn State student-athletes in the Spanish language and linguistics; trigonometry; symbolic algebra; analytical geometry; and the univariable calculus</li>
             </ul>
           </div>
         </div>
+
       </section>
-  
-      <!-- Education -->
+
+      <!--+--------------------------------------------------------------------------------------------------
+          |
+          |    education
+          |
+          +-------------------------------------------------------------------------------------------------->
       <section class="resume-section">
         <h3 class="title">EDUCATION</h3>
-        <div class="entry">
-          <div class="entry-date"></div>
-          <div class="entry-content">
-            <div class="timeline-dot"></div>
-            <h4 class="degree">Bachelor of Arts in Philosophy of Science and Math</h4>
-            <h5 class="degree">Minor - Computer Science</h5>
-            <h5 class="degree">Minor - Mathematics for IST</h5>
-            <h5 class="degree">Minor - Linguistics</h5>
-            <h5 class="degree">Minor - Spanish</h5>
-            <p class="school">Penn State University</p>
-          </div>
+
+        <div class="item">
+          <h5 class="entry-title">Bachelor of Arts in Philosophy of Science and Math</h5>
+          <div class="entry-dates">Penn State University</div>
+          <ul class="entry-bullets">
+            <li>Minor — Computer Science</li>
+            <li>Minor — Mathematics for IST</li>
+            <li>Minor — Linguistics</li>
+            <li>Minor — Spanish</li>
+          </ul>
         </div>
+
       </section>
-  
-      <!-- Projects -->
+
+      <!--+--------------------------------------------------------------------------------------------------
+          |
+          |    projects
+          |
+          +-------------------------------------------------------------------------------------------------->
       <section class="resume-section">
         <h3 class="title">PROJECT WORK</h3>
-        <div class="entry">
-          <div class="entry-date">2021 - PRESENT</div>
-          <div class="entry-content">
-            <div class="timeline-dot"></div>
-            <h4 class="degree">Homelab</h4>
-            <ul>
-              <li>Designed, installed, configure, and manage a rack-mounted enterprise network stack, a security gateway with stateful firewall, L7 taffic filtering, and multigigabit IDPS routing; a security camera system with local NVR; and a managed (L3) PoE++ switch (featured on my LinkedIn page)</li>
-              <li>Planned, procured equipment for, installed, and terminated Cat 6a cable runs to multiple APs and other networked devices via PoE</li>
-              <li>Configure and manage VLANs for secure devices, Wireguard VPN clients, and IoT networks with least-privilege access</li>
-              <li>Configure and manage raspberry pi cluster incorporating a suite of networked services including OpenSSH remote authentication, DNS filtering, HDFS and Apache Spark for big-data processing, and load-balanced we services</li>
-            </ul>
-          </div>
+
+        <div class="item">
+          <h5 class="entry-title">Homelab</h5>
+          <div class="entry-dates">2021 – Present</div>
+          <ul class="entry-bullets">
+            <li>Designed, installed, configured, and manage a rack-mounted enterprise network stack; stateful firewall with L7 filtering and multigigabit IDPS; camera system with local NVR; and managed (L3) PoE++ switch</li>
+            <li>Planned and terminated Cat 6a runs to multiple APs and devices via PoE</li>
+            <li>Configure and manage VLANs for secure devices, WireGuard VPN clients, and IoT networks</li>
+            <li>Raspberry Pi cluster providing OpenSSH auth, DNS filtering, HDFS + Apache Spark, and load-balanced web services</li>
+          </ul>
         </div>
-        <div class="entry">
-          <div class="entry-date">2021 - PRESENT</div>
-          <div class="entry-content">
-            <div class="timeline-dot"></div>
-            <h4 class="degree">Laptop Lab</h4>
-            <ul>
-              <li>Build and maintain a knowledge base on topics in computer systems and applied mathematics using a suite of build ad typesetting tools, such as Jupyter Book and LaTeX</li>
-            </ul>
-          </div>
+
+        <div class="item">
+          <h5 class="entry-title">Laptop Lab</h5>
+          <div class="entry-dates">2021 – Present</div>
+          <ul class="entry-bullets">
+            <li>Knowledge base on computer systems and applied mathematics using Jupyter Book and LaTeX</li>
+          </ul>
         </div>
+
       </section>
 
     </div>
   </main>
 
+  <!--+--------------------------------------------------------------------------------------------------
+    |
+    |    print resume
+    |
+    +-------------------------------------------------------------------------------------------------->
   <script>
     function printResume (mode)
     {
