@@ -40,6 +40,8 @@
   <div class="twinkle-layer twinkle-1" aria-hidden="true"></div>
   <div class="twinkle-layer twinkle-2" aria-hidden="true"></div>
   <div class="twinkle-layer twinkle-3" aria-hidden="true"></div>
+  <div class="twinkle-layer twinkle-scramble" aria-hidden="true"></div>
+
 
   <div id="banner">
     <h1>
@@ -48,6 +50,12 @@
   </div>
 
   <main class="resume">
+
+    <!-- dark mode toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="icon-sun" aria-hidden="true">☀︎</span>
+      <span class="icon-moon" aria-hidden="true">☾</span>
+    </button>
 
     <!--+--------------------------------------------------
         |
@@ -314,7 +322,7 @@
   <script>
     function printResume (mode)
     {
-      document.getElementById("print-timeline").disabled = true;
+      document.getElementById("print-timeline").disabled   = true;
       document.getElementById("print-simplified").disabled = true;
 
       if (mode == "timeline")
@@ -328,6 +336,29 @@
 
       setTimeout(() => window.print(), 100);
     }
+
+    // ---- Dark mode toggle (no effect on animations) ----
+    (function ()
+    {
+      const body    = document.body;
+      const toggle  = document.getElementById("theme-toggle");
+      const key     = "df_theme";
+
+      // initial: saved pref -> system pref -> light
+      const saved   = localStorage.getItem(key);
+      const prefers = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (saved === "dark" || (saved === null && prefers))
+      {
+        body.classList.add("dark");
+      }
+
+      toggle.addEventListener("click", () =>
+      {
+        body.classList.toggle("dark");
+        localStorage.setItem(key, body.classList.contains("dark") ? "dark" : "light");
+      });
+    })();
   </script>
 
 </body>

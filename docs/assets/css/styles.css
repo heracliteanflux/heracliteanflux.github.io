@@ -7,7 +7,7 @@
 
 /****************************************************************************************************
  *
- *    02) Variables & Theming
+ *    02) Variables & Theming (Light default)
  *
  ****************************************************************************************************/
 :root
@@ -44,6 +44,51 @@
 
   --twinkle-min      : 0.34;
   --twinkle-max      : 0.90;
+
+  --card-bg          : #ffffff;
+  --left-bg          : #DAE7F1;
+  --card-border-top  : #DAE7F1;
+  --page-bg          : #fafafa;
+
+  --btn-text         : #ffffff;
+
+  --transition-fast  : 200ms;
+  --transition-slow  : 420ms;
+}
+
+/* ------------------------- Dark theme overrides ------------------------- */
+body.dark
+{
+  --text-color       : #e8edf3;
+  --primary-color    : #8ec1ff;
+  --muted-color      : #a7b4c3;
+  --line-color       : rgba(255,255,255,0.18);
+
+  --dust-steel-1     : rgba(192,206,220,0.82);
+  --dust-steel-2     : rgba(142,160,178,0.72);
+  --dust-steel-3     : rgba(160,180,198,0.78);
+
+  --ocean-1-core     : rgba( 46,169,234,0.86);
+  --ocean-1-halo     : rgba( 46,169,234,0.26);
+  --ocean-2-core     : rgba(  0,159,214,0.80);
+  --ocean-2-halo     : rgba(  0,159,214,0.24);
+  --ocean-deep       : rgba(  0,135,255,0.86);
+
+  --cyan-core        : rgba( 82,193,230,0.86);
+  --cyan-halo        : rgba( 82,193,230,0.26);
+  --blue-core        : rgba( 90,150,200,0.80);
+  --blue-halo        : rgba( 90,150,200,0.22);
+
+  --far-op           : 0.64;
+  --mid-op           : 0.70;
+  --near-op          : 0.78;
+
+  --card-bg          : #0f141a;
+  --left-bg          : #0d1b26;
+  --card-border-top  : #142531;
+  --page-bg          : #070a10;
+
+  --btn-text         : #0b1220;
 }
 
 /****************************************************************************************************
@@ -59,7 +104,7 @@ html
 
 body
 {
-  background-color : #fafafa;
+  background-color : var(--page-bg);
   color            : var(--text-color);
   font-family      : var(--font-family);
   line-height      : 1.6;
@@ -67,12 +112,19 @@ body
   padding          : 0;
   position         : relative;
   overflow-x       : clip;
+  transition       : background-color var(--transition-slow) ease,
+                     color            var(--transition-fast) ease;
 }
 
 a
 {
   color           : black;
   text-decoration : none;
+}
+
+body.dark a
+{
+  color : var(--primary-color);
 }
 
 ul
@@ -110,7 +162,7 @@ li
  ****************************************************************************************************/
 .resume
 {
-  background    : #fff;
+  background    : var(--card-bg);
   border-radius : 8px;
   box-shadow    : 0 4px 10px rgba(0,0,0,0.25);
   margin        : 4rem auto;
@@ -122,8 +174,10 @@ li
   grid-template-columns : 1fr 3fr;
   grid-template-rows    : 1fr auto;
 
-  position : relative;
-  z-index  : 2;
+  position   : relative;
+  z-index    : 2;
+  transition : background-color var(--transition-slow) ease,
+               box-shadow        var(--transition-slow) ease;
 }
 
 @media (max-width:768px)
@@ -146,7 +200,8 @@ li
 
 .left
 {
-  background : #DAE7F1;
+  background  : var(--left-bg);
+  transition  : background-color var(--transition-slow) ease;
 }
 
 .q2
@@ -173,9 +228,10 @@ li
 
 .q4
 {
-  border-top  : solid 1px #DAE7F1;
+  border-top  : solid 1px var(--card-border-top);
   grid-column : 2/5;
   padding     : 20px;
+  transition  : border-color var(--transition-slow) ease;
 }
 
 /****************************************************************************************************
@@ -192,6 +248,7 @@ li
   margin         : 0;
   text-transform : uppercase;
   transform      : scaleY(1.1);
+  transition     : color var(--transition-fast) ease;
 }
 
 .section
@@ -230,6 +287,7 @@ li
   font-weight    : 400;
   margin-bottom  : -3rem;
   text-transform : uppercase;
+  transition     : color var(--transition-fast) ease;
 }
 
 .name_last
@@ -239,6 +297,7 @@ li
   font-size      : clamp(2.5rem,8vw,7rem);
   font-weight    : 700;
   text-transform : uppercase;
+  transition     : color var(--transition-fast) ease;
 }
 
 .introduction
@@ -265,6 +324,7 @@ li
   margin    : 0.1rem 0 0.6rem;
   color     : var(--muted-color);
   font-size : 0.95rem;
+  transition: color var(--transition-fast) ease;
 }
 
 .entry-bullets
@@ -331,6 +391,7 @@ li
   border-radius : 50%;
   background    : var(--primary-color);
   box-shadow    : 0 0 0 3px rgba(70,130,180,0.18);
+  transition    : background var(--transition-fast) ease;
 }
 
 /****************************************************************************************************
@@ -372,6 +433,7 @@ li
 {
   color           : var(--primary-color);
   text-decoration : none;
+  transition      : color var(--transition-fast) ease;
 }
 
 .contact-list a:hover
@@ -444,14 +506,14 @@ li
   background      : var(--primary-color);
   border          : none;
   border-radius   : 6px;
-  color           : #fff;
+  color           : var(--btn-text);
   cursor          : pointer;
   font-family     : var(--font-family);
   font-size       : 0.95rem;
   font-weight     : 600;
   padding         : 0.6rem 1.2rem;
   text-decoration : none;
-  transition      : background 0.3s ease, transform 0.2s ease;
+  transition      : background var(--transition-fast) ease, transform var(--transition-fast) ease;
 }
 
 .btn-download:hover
@@ -468,7 +530,61 @@ li
 
 /****************************************************************************************************
  *
+ *    11.5) Theme Toggle (square button, top-right of resume)
+ *
+ ****************************************************************************************************/
+.theme-toggle
+{
+  position       : absolute;
+  top            : 12px;
+  right          : 12px;
+  width          : 28px;
+  height         : 28px;
+  border         : 1px solid var(--line-color);
+  background     : transparent;
+  color          : var(--text-color);
+  border-radius  : 6px;
+  display        : grid;
+  place-items    : center;
+  cursor         : pointer;
+  z-index        : 4;
+  transition     : background-color var(--transition-fast) ease,
+                   color            var(--transition-fast) ease,
+                   border-color     var(--transition-fast) ease;
+}
+
+.theme-toggle:hover
+{
+  background : rgba(0,0,0,0.05);
+}
+
+body.dark .theme-toggle:hover
+{
+  background : rgba(255,255,255,0.06);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon
+{
+  font-size  : 14px;
+  line-height: 1;
+  display    : none;
+}
+
+body:not(.dark) .theme-toggle .icon-moon
+{
+  display : block;
+}
+
+body.dark .theme-toggle .icon-sun
+{
+  display : block;
+}
+
+/****************************************************************************************************
+ *
  *    12) Background Dust — dense fields, transform-based drift (no jumps)
+ *        (unchanged motion; colors adapt via CSS variables above)
  *
  ****************************************************************************************************/
 html::before,
@@ -478,7 +594,7 @@ body::after
 {
   content           : "";
   position          : fixed;
-  inset             : -30vh -30vw;   /* oversized canvas => transform never exposes edges */
+  inset             : -30vh -30vw;
   pointer-events    : none;
   transform         : translateZ(0);
   will-change       : transform, opacity;
@@ -486,7 +602,7 @@ body::after
   background-repeat : repeat;
 }
 
-/* FAR A — high-density micro specks + a few halos */
+/* FAR A */
 html::before
 {
   background-image :
@@ -521,7 +637,7 @@ html::before
   animation : far-layer-drift-a 137s linear infinite alternate;
 }
 
-/* FAR B — medium specks + bright ocean accents */
+/* FAR B */
 html::after
 {
   background-image :
@@ -550,7 +666,7 @@ html::after
   animation : far-layer-drift-b 127s linear infinite alternate;
 }
 
-/* MID — denser field + several larger ocean blues */
+/* MID */
 body::before
 {
   background-image :
@@ -578,7 +694,7 @@ body::before
   animation : mid-layer-drift 73s linear infinite alternate;
 }
 
-/* NEAR — brightest sparse large dots (few, very blue) */
+/* NEAR */
 body::after
 {
   background-image :
@@ -606,7 +722,7 @@ body::after
 
 @keyframes far-layer-drift-b
 {
-  0%   { transform : translate(  0px,   0px); }
+  0%   { transform : translate(  0px,  0px); }
   100% { transform : translate(300px, 260px); }
 }
 
@@ -618,7 +734,7 @@ body::after
 
 @keyframes near-layer-drift
 {
-  0%   { transform : translate(  0px,   0px); }
+  0%   { transform : translate(  0px,  0px); }
   100% { transform : translate(320px, 300px); }
 }
 
@@ -656,6 +772,7 @@ body::after
 /****************************************************************************************************
  *
  *    14) Twinkle overlays — denser, independent glow + transform drift
+ *        (unchanged; opacity responds to theme variables)
  *
  ****************************************************************************************************/
 .twinkle-layer
@@ -785,7 +902,51 @@ body::after
 
 /****************************************************************************************************
  *
+ *    14.5) Scramble overlay — ultra-low-opacity, off-grid specks to break visible rows
+ *          (adds perceptual randomness without changing underlying mechanics)
+ *
+ ****************************************************************************************************/
+.twinkle-scramble
+{
+  background-image :
+    radial-gradient(circle at 13% 19%, rgba( 36,149,214,0.85) 0 0.8px, transparent 1.3px),
+    radial-gradient(circle at 37% 11%, rgba(  0,139,190,0.82) 0 0.9px, transparent 1.4px),
+    radial-gradient(circle at 61% 27%, rgba( 70,130,180,0.80) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 83% 17%, rgba( 72,173,210,0.78) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 19% 83%, rgba(  0,115,230,0.90) 0 1.0px, transparent 1.7px),
+    radial-gradient(circle at 47% 71%, rgba( 36,149,214,0.82) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 73% 63%, rgba(  0,139,190,0.80) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 11% 57%, rgba( 70,130,180,0.78) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 29% 41%, rgba( 72,173,210,0.80) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 91% 49%, rgba(  0,115,230,0.92) 0 1.0px, transparent 1.7px);
+  background-size :
+    173px 173px, 191px 191px, 207px 207px, 223px 223px, 251px 251px,
+    179px 179px, 197px 197px, 213px 213px, 229px 229px, 247px 247px;
+
+  transform : rotate(0.37deg);
+  animation :
+    twinkle-scramble-opacity 27s ease-in-out infinite alternate,
+    twinkle-scramble-drift   111s linear      infinite alternate;
+  opacity : 0.18;
+}
+
+@keyframes twinkle-scramble-opacity
+{
+  0%   { opacity : 0.12; }
+  55%  { opacity : 0.22; }
+  100% { opacity : 0.12; }
+}
+
+@keyframes twinkle-scramble-drift
+{
+  0%   { transform : translate(   0px,    0px) rotate(0.37deg); }
+  100% { transform : translate(-260px, -210px) rotate(0.37deg); }
+}
+
+/****************************************************************************************************
+ *
  *    15) Sun orb (bottom-left elliptical orbit — smooth, 3D)
+ *        (unchanged; stays vibrant in both themes)
  *
  ****************************************************************************************************/
 #bg-sun
@@ -844,4 +1005,129 @@ body::after
   {
     grid-column : 1;
   }
+}
+
+/****************************************************************************************************
+ *
+ *    12.1) Dust desync jitter — tiny per-layer offsets to break visible rows (light + dark)
+ *           (no mechanic changes; only background-position on existing four dust fields)
+ *
+ ****************************************************************************************************/
+:root
+{
+  --dust-off-a : 23.7px 17.9px;   /* html::before  */
+  --dust-off-b : -19.3px 11.4px;  /* html::after   */
+  --dust-off-c : 29.6px -21.2px;  /* body::before  */
+  --dust-off-d : -13.8px -16.5px; /* body::after   */
+}
+
+body.dark
+{
+  --dust-off-a : 21.1px 15.3px;
+  --dust-off-b : -17.2px 13.7px;
+  --dust-off-c : 27.9px -19.6px;
+  --dust-off-d : -12.4px -14.8px;
+}
+
+html::before  { background-position : var(--dust-off-a); }
+html::after   { background-position : var(--dust-off-b); }
+body::before  { background-position : var(--dust-off-c); }
+body::after   { background-position : var(--dust-off-d); }
+
+/****************************************************************************************************
+ *
+ *    12.2) Per-gradient offsets — break residual grid without changing any mechanics
+ *
+ ****************************************************************************************************/
+html::before
+{
+  background-position :
+    7px  3px,   29px  11px,  -18px  9px,   23px  14px,  -31px  6px,
+   -9px  17px,  35px  13px,  -22px  19px,   17px  21px,  -27px  15px,
+    14px  33px, -12px  29px,  28px  37px,  -16px  41px,  33px  45px,
+   -21px  48px,  19px  54px, -25px  59px,   11px  67px,  -13px  72px;
+}
+
+html::after
+{
+  background-position :
+    9px  6px,   -21px  10px,  27px  5px,   -15px  14px,  23px  8px,
+   -11px  18px,  31px  12px, -27px  20px,   18px  26px, -24px  28px,
+    12px  34px, -19px  36px,  26px  42px,   -14px  48px,  20px  54px;
+}
+
+body::before
+{
+  background-position :
+    13px  9px,  -17px  13px,  24px  16px,  -12px  19px,  21px  23px,
+   -10px  27px,  28px  31px, -22px  35px,  16px  39px,  -18px  43px,
+    9px  47px,  -15px  52px,  23px  56px,  -11px  61px;
+}
+
+body::after
+{
+  background-position :
+    15px  7px,  -19px  11px,  22px  15px,  -13px  19px,  17px  24px,
+   -11px  28px,  14px  33px;
+}
+
+body.dark html::before  { background-position :  -8px  -5px, -31px -12px,  16px -10px, -25px -13px,  29px  -7px,
+                                                     11px -18px, -33px -14px,  24px -20px, -19px -22px,  27px -16px,
+                                                    -12px -34px,  17px -30px, -26px -38px,  14px -42px, -30px -46px,
+                                                     20px -49px, -18px -55px,  23px -60px, -10px -68px,   12px -73px; }
+body.dark html::after   { background-position : -10px -7px,  20px -11px, -28px  -6px,  14px -15px, -24px  -9px,
+                                                     12px -19px, -32px -13px,  26px -21px, -17px -27px,  23px -29px,
+                                                    -11px -35px,  18px -37px, -25px -43px,  13px -49px, -19px -55px; }
+body.dark body::before  { background-position : -14px -10px,  16px -14px, -23px -17px,  13px -20px, -20px -24px,
+                                                     11px -28px, -27px -32px,  21px -36px, -15px -40px,  17px -44px,
+                                                    -10px -48px,  14px -53px, -22px -57px,  12px -62px; }
+body.dark body::after   { background-position : -16px  -8px,  18px -12px, -21px -16px,  12px -20px, -15px -25px,
+                                                     10px -29px, -13px -34px; }
+
+/****************************************************************************************************
+ *
+ *    14.6) Twinkle micro-offsets — per-gradient background-position to break residual grid
+ *           (keeps twinkle mechanics, sizes, colors, and animations unchanged)
+ *
+ ****************************************************************************************************/
+.twinkle-1
+{
+  background-position :
+     6px  4px,  -8px   7px,  11px  9px,  -5px  12px,  14px  16px,
+   -12px  18px,  17px 21px, -15px  24px,  10px  27px, -13px  29px,
+     8px  33px, -10px  36px,  12px 39px, -11px  43px,  16px  46px,
+    -9px  50px,  13px 53px, -14px  57px,   7px  61px,  -8px  65px;
+}
+
+.twinkle-2
+{
+  background-position :
+     9px  6px,  -7px  10px,  12px  14px, -10px  18px,  16px  22px,
+    -8px  26px,  13px 30px, -11px  34px,  15px  38px,  -9px  42px;
+}
+
+.twinkle-3
+{
+  background-position :
+     7px  5px,  -9px  11px,  13px  17px,  -8px  23px;
+}
+
+body.dark .twinkle-1
+{
+  background-position :
+    -7px -5px,   9px  -8px, -12px -10px,  6px -13px, -15px -17px,
+     13px -19px, -18px -22px, 14px -25px, -11px -28px, 12px -30px,
+     -9px -34px, 11px -37px, -13px -40px, 12px -44px, -17px -47px,
+      10px -51px, -14px -54px, 15px -58px,  -8px -62px,   9px -66px;
+}
+body.dark .twinkle-2
+{
+  background-position :
+    -10px -7px,  8px -11px, -13px -15px, 11px -19px, -17px -23px,
+      9px -27px, -14px -31px, 12px -35px, -16px -39px, 10px -43px;
+}
+body.dark .twinkle-3
+{
+  background-position :
+    -8px -6px,  10px -12px, -14px -18px,  9px -24px;
 }
