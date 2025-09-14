@@ -27,9 +27,9 @@
 
   <!-- -->
   <title>Dave Friedman</title>
-  <link                       rel="stylesheet" type="text/css" href="assets/css/styles.css"                    />
-  <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css"   disabled />
-  <link id="print-simplified" rel="stylesheet" type="text/css" href="assets/css/print-simplified.css" disabled />
+  <link                       rel="stylesheet" type="text/css" href="assets/css/styles.css"         />
+  <!-- <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css"   disabled /> -->
+  <link id="print-simplified" rel="stylesheet" type="text/css" href="assets/css/print.css" disabled />
 
 </head>
 
@@ -79,7 +79,7 @@
         |    Dark Mode
         |
         +-------------------------------------------------->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <button id="theme-toggle" class="buttons btn-download theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
       <span class="icon-sun"  aria-hidden="true">☀︎</span>
       <span class="icon-moon" aria-hidden="true">☾</span>
     </button>
@@ -89,10 +89,9 @@
         |    Download
         |
         +-------------------------------------------------->
-    <div class="download-buttons pdf-controls">
-      <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf" aria-label="Download PDF">PDF</a>
-      <!-- <a class="btn-download" onclick="printResume('simplified')">PDF (Simplified)</a> -->
-      <!-- <a class="btn-download" onclick="printResume('timeline')">PDF (Timeline)</a> -->
+    <div class="buttons">
+      <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf" aria-label="Download PDF">Download</a>
+      <a class="btn-download" onclick="printResume('simplified')">Print</a>
     </div>
 
     <!--+--------------------------------------------------
@@ -357,7 +356,7 @@
    ****************************************************************************************************/
   function printResume (mode)
   {
-    document.getElementById("print-timeline").disabled   = true;
+    // document.getElementById("print-timeline").disabled   = true;
     document.getElementById("print-simplified").disabled = true;
 
     if (mode == "timeline")
