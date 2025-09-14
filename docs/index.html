@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<!--+--------------------------------------------------------------------------------------------------
+
+
+<!--+----------------------------------------------------------------------------------------------------------------------------------------------------
     |
     |    head
     |
-    +-------------------------------------------------------------------------------------------------->
+    +---------------------------------------------------------------------------------------------------------------------------------------------------->
 <head>
 
   <!-- Google tag (gtag.js) -->
@@ -18,44 +20,80 @@
     gtag('config', 'G-H3FHXK217B');
   </script>
 
+  <!-- -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport"              content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Dave Friedman - Resume</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
-  <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css" disabled />
+
+  <!-- -->
+  <title>Dave Friedman</title>
+  <link                       rel="stylesheet" type="text/css" href="assets/css/styles.css"                    />
+  <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css"   disabled />
   <link id="print-simplified" rel="stylesheet" type="text/css" href="assets/css/print-simplified.css" disabled />
+
 </head>
 
-<!--+--------------------------------------------------------------------------------------------------
+
+
+<!--+----------------------------------------------------------------------------------------------------------------------------------------------------
     |
     |    body
     |
-    +-------------------------------------------------------------------------------------------------->
+    +---------------------------------------------------------------------------------------------------------------------------------------------------->
 <body>
 
-  <div id="bg-sun" aria-hidden="true"></div>
-
+  <!--+----------------------------------------------------------------------------------------------------
+      |
+      |    background
+      |
+      +---------------------------------------------------------------------------------------------------->
+  <div id="bg-sun"                            aria-hidden="true"></div>
   <!-- independent twinkle overlays (for per-particle glow) -->
-  <div class="twinkle-layer twinkle-1" aria-hidden="true"></div>
-  <div class="twinkle-layer twinkle-2" aria-hidden="true"></div>
-  <div class="twinkle-layer twinkle-3" aria-hidden="true"></div>
+  <div class="twinkle-layer twinkle-1"        aria-hidden="true"></div>
+  <div class="twinkle-layer twinkle-2"        aria-hidden="true"></div>
+  <div class="twinkle-layer twinkle-3"        aria-hidden="true"></div>
   <div class="twinkle-layer twinkle-scramble" aria-hidden="true"></div>
 
-
+  <!--+----------------------------------------------------------------------------------------------------
+      |
+      |    banner
+      |
+      +---------------------------------------------------------------------------------------------------->
   <div id="banner">
     <h1>
-      This site is currently under construction. Please <a href="https://heracliteanflux.github.io/laptoplab/">take a look at the laptop lab</a> and <a href="https://www.linkedin.com/in/heracliteanflux/">reach out to me on LinkedIn</a> in the meantime :)
+        This site is currently under construction.
+        Please <a href="https://heracliteanflux.github.io/laptoplab/">take a look at the laptop lab</a>
+        and    <a href="https://www.linkedin.com/in/heracliteanflux/">reach out to me on LinkedIn</a> in the meantime!
     </h1>
   </div>
 
+  <!--+----------------------------------------------------------------------------------------------------
+      |
+      |    resume
+      |
+      +---------------------------------------------------------------------------------------------------->
   <main class="resume">
 
-    <!-- dark mode toggle -->
+    <!--+--------------------------------------------------
+        |
+        |    Dark Mode
+        |
+        +-------------------------------------------------->
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-      <span class="icon-sun" aria-hidden="true">☀︎</span>
+      <span class="icon-sun"  aria-hidden="true">☀︎</span>
       <span class="icon-moon" aria-hidden="true">☾</span>
     </button>
+
+    <!--+--------------------------------------------------
+        |
+        |    Download
+        |
+        +-------------------------------------------------->
+    <div class="download-buttons pdf-controls">
+      <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf" aria-label="Download PDF">PDF</a>
+      <!-- <a class="btn-download" onclick="printResume('simplified')">PDF (Simplified)</a> -->
+      <!-- <a class="btn-download" onclick="printResume('timeline')">PDF (Timeline)</a> -->
+    </div>
 
     <!--+--------------------------------------------------
         |
@@ -63,7 +101,7 @@
         |
         +-------------------------------------------------->
     <div class="top left q1">
-      <img id="portrait" src="./assets/img/portrait.png" alt="Dave Friedman">
+      <img id="portrait" src="./assets/img/portrait.png" alt="Dave Friedman" />
     </div>
 
     <!--+--------------------------------------------------
@@ -81,14 +119,9 @@
         <span class="name_last">Friedman</span>
       </h1>
 
-      <p class="introduction">Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX</p>
-      
-      <!-- Download -->
-      <div class="download-buttons pdf-controls">
-        <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf">Download PDF</a>
-        <!-- <a class="btn-download" onclick="printResume('simplified')">PDF (Simplified)</a> -->
-        <!-- <a class="btn-download" onclick="printResume('timeline')">PDF (Timeline)</a> -->
-      </div>
+      <p class="introduction">
+        Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX
+      </p>
 
     </header>
 
@@ -102,11 +135,13 @@
         +-------------------------------------------------->
     <div class="bot left q3">
 
-      <!-- CONTACT -->
+      <!--+--------------------------------------------------------------------------------------------------
+          |    CONTACT
+          +-------------------------------------------------------------------------------------------------->
       <section class="contact section">
         <h3 class="title">Contact</h3>
         <ul class="skill_list description contact-list">
-          <li><a href="tel:+14846538802">484.653.8802</a> <span class="contact-label"> • Phone</span></li>
+          <!-- <li><a href="tel:+14846538802">484.653.8802</a> <span class="contact-label"> • Phone</span></li> -->
           <li><a href="mailto:davefriedman@pm.me">davefriedman@pm.me</a> <span class="contact-label"> • Email</span></li>
           <li><a href="https://linkedin.com/in/heracliteanflux">linkedin.com/in/heracliteanflux</a> <span class="contact-label"> • LinkedIn</span></li>
           <li><a href="https://github.com/heracliteanflux">github.com/heracliteanflux</a> <span class="contact-label"> • GitHub</span></li>
@@ -114,7 +149,9 @@
         </ul>
       </section>
 
-      <!-- SKILLS -->
+      <!--+--------------------------------------------------------------------------------------------------
+          |    SKILLS
+          +-------------------------------------------------------------------------------------------------->
       <section class="skills section">
         <h3 class="title">Skills</h3>
         <ul class="skill_list description">
@@ -148,9 +185,11 @@
           <li>Linguistics</li>
           <li>Spanish</li>
         </ul>
-      </section>
+      </section> <!-- SKILLS -->
 
-      <!-- COURSEWORK -->
+      <!--+--------------------------------------------------------------------------------------------------
+          |    COURSEWORK
+          +-------------------------------------------------------------------------------------------------->
       <section class="skills section">
         <h3 class="title">Coursework</h3>
         <ul class="skill_list description">
@@ -177,7 +216,7 @@
           <li>PSU MATH 457 Mathematical Logic</li>
           <li>PSU MATH 220 Matrices</li>
         </ul>
-      </section>
+      </section> <!-- COURSEWORK -->
 
     </div>
 
@@ -192,9 +231,7 @@
     <div class="bot rght q4">
 
       <!--+--------------------------------------------------------------------------------------------------
-          |
-          |    work
-          |
+          |    WORK
           +-------------------------------------------------------------------------------------------------->
       <section class="resume-section">
         <h3 class="title">WORK EXPERIENCE</h3>
@@ -259,12 +296,10 @@
           </div>
         </div>
 
-      </section>
+      </section> <!-- WORK -->
 
       <!--+--------------------------------------------------------------------------------------------------
-          |
-          |    education
-          |
+          |    EDUCATION
           +-------------------------------------------------------------------------------------------------->
       <section class="resume-section">
         <h3 class="title">EDUCATION</h3>
@@ -280,12 +315,10 @@
           </ul>
         </div>
 
-      </section>
+      </section> <!-- EDUCATION -->
 
       <!--+--------------------------------------------------------------------------------------------------
-          |
-          |    projects
-          |
+          |    PROJECT
           +-------------------------------------------------------------------------------------------------->
       <section class="resume-section">
         <h3 class="title">PROJECT WORK</h3>
@@ -309,57 +342,63 @@
           </ul>
         </div>
 
-      </section>
+      </section> <!-- PROJECT -->
 
     </div>
   </main>
 
-  <!--+--------------------------------------------------------------------------------------------------
-    |
-    |    print resume
-    |
-    +-------------------------------------------------------------------------------------------------->
-  <script>
-    function printResume (mode)
+
+
+<script>
+  /****************************************************************************************************
+   *
+   *    PRINT
+   *
+   ****************************************************************************************************/
+  function printResume (mode)
+  {
+    document.getElementById("print-timeline").disabled   = true;
+    document.getElementById("print-simplified").disabled = true;
+
+    if (mode == "timeline")
     {
-      document.getElementById("print-timeline").disabled   = true;
-      document.getElementById("print-simplified").disabled = true;
-
-      if (mode == "timeline")
-      {
-        document.getElementById("print-timeline").disabled = false;
-      }
-      else
-      {
-        document.getElementById("print-simplified").disabled = false;
-      }
-
-      setTimeout(() => window.print(), 100);
+      document.getElementById("print-timeline").disabled = false;
+    }
+    else
+    {
+      document.getElementById("print-simplified").disabled = false;
     }
 
-    // ---- Dark mode toggle (no effect on animations) ----
-    (function ()
+    setTimeout(() => window.print(), 100);
+  }
+
+  /****************************************************************************************************
+   *
+   *    DARK MODE
+   *
+   ****************************************************************************************************/
+  (function ()
+  {
+    const body    = document.body;
+    const toggle  = document.getElementById("theme-toggle");
+    const key     = "df_theme";
+
+    // initial: saved pref -> system pref -> light
+    const saved   = localStorage.getItem(key);
+    const prefers = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (saved === "dark" || (saved === null && prefers))
     {
-      const body    = document.body;
-      const toggle  = document.getElementById("theme-toggle");
-      const key     = "df_theme";
+      body.classList.add("dark");
+    }
 
-      // initial: saved pref -> system pref -> light
-      const saved   = localStorage.getItem(key);
-      const prefers = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      if (saved === "dark" || (saved === null && prefers))
-      {
-        body.classList.add("dark");
-      }
-
-      toggle.addEventListener("click", () =>
-      {
-        body.classList.toggle("dark");
-        localStorage.setItem(key, body.classList.contains("dark") ? "dark" : "light");
-      });
-    })();
-  </script>
+    toggle.addEventListener("click", () =>
+    {
+      body.classList.toggle("dark");
+      localStorage.setItem(key, body.classList.contains("dark") ? "dark" : "light");
+    });
+  })();
+</script>
 
 </body>
 </html>
