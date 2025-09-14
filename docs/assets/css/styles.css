@@ -12,30 +12,38 @@
  ****************************************************************************************************/
 :root
 {
-  --font-family    : "UI Sans", Lato, Helvetica, Arial, sans-serif;
-  --text-color     : #333;
-  --primary-color  : #4682B4;   /* SteelBlue */
-  --muted-color    : #777;
-  --line-color     : #ddd;
+  --font-family      : "UI Sans", Lato, Helvetica, Arial, sans-serif;
+  --text-color       : #333;
+  --primary-color    : #4682B4;
+  --muted-color      : #777;
+  --line-color       : #ddd;
 
-  --line-x         : 5px;
-  --line-width     : 2px;
-  --dot-size       : 10px;
+  --line-x           : 5px;
+  --line-width       : 2px;
+  --dot-size         : 10px;
 
-  --dust-steel-1   : rgba(180,196,210,0.72);
-  --dust-steel-2   : rgba(120,140,160,0.60);
-  --dust-steel-3   : rgba(150,170,190,0.66);
-  --dust-cyan-core : rgba(72,173,210,0.42);
-  --dust-cyan-halo : rgba(72,173,210,0.12);
-  --dust-blue-core : rgba(70,130,180,0.36);
-  --dust-blue-halo : rgba(70,130,180,0.10);
+  /* Steely + ocean blues */
+  --dust-steel-1     : rgba(180,196,210,0.72);
+  --dust-steel-2     : rgba(120,140,160,0.60);
+  --dust-steel-3     : rgba(150,170,190,0.66);
 
-  --mid-op         : 0.50;
-  --near-op        : 0.58;
-  --twinkle-min-mid  : 0.26;
-  --twinkle-max-mid  : 0.78;
-  --twinkle-min-near : 0.30;
-  --twinkle-max-near : 0.84;
+  --ocean-1-core     : rgba( 36,149,214,0.70);
+  --ocean-1-halo     : rgba( 36,149,214,0.20);
+  --ocean-2-core     : rgba(  0,139,190,0.64);
+  --ocean-2-halo     : rgba(  0,139,190,0.18);
+  --ocean-deep       : rgba(  0,115,230,0.62);
+
+  --cyan-core        : rgba( 72,173,210,0.56);
+  --cyan-halo        : rgba( 72,173,210,0.18);
+  --blue-core        : rgba( 70,130,180,0.44);
+  --blue-halo        : rgba( 70,130,180,0.14);
+
+  --far-op           : 0.50;
+  --mid-op           : 0.58;
+  --near-op          : 0.64;
+
+  --twinkle-min      : 0.34;
+  --twinkle-max      : 0.90;
 }
 
 /****************************************************************************************************
@@ -242,23 +250,21 @@ li
 /****************************************************************************************************
  *
  *    Experience — Company-grouped
- *    (local styles; connectors + dots live only here)
  *
  ****************************************************************************************************/
-/* Shared entry text styles (used by Experience, Education, Projects) */
 .entry-title
 {
-  margin          : 0;
-  font-weight     : 800;
-  text-transform  : uppercase;
-  letter-spacing  : 0.01em;
+  margin         : 0;
+  font-weight    : 800;
+  text-transform : uppercase;
+  letter-spacing : 0.01em;
 }
 
 .entry-dates
 {
-  margin     : 0.1rem 0 0.6rem;
-  color      : var(--muted-color);
-  font-size  : 0.95rem;
+  margin    : 0.1rem 0 0.6rem;
+  color     : var(--muted-color);
+  font-size : 0.95rem;
 }
 
 .entry-bullets
@@ -270,7 +276,6 @@ li
   line-height  : 1.55;
 }
 
-/* Company group container (Experience only) */
 .company-block
 {
   margin : 2rem 0 3rem;
@@ -293,7 +298,6 @@ li
   font-size  : 1.15rem;
 }
 
-/* Role rows with connector */
 .role
 {
   position     : relative;
@@ -364,7 +368,6 @@ li
   line-height   : 1.5;
 }
 
-/* Contact tweaks: keep values clickable; keep same type/weight/spacing */
 .contact-list a
 {
   color           : var(--primary-color);
@@ -465,7 +468,7 @@ li
 
 /****************************************************************************************************
  *
- *    12) Background Dust (Fixed, Desynced, Slow Ramps)
+ *    12) Background Dust — dense fields, transform-based drift (no jumps)
  *
  ****************************************************************************************************/
 html::before,
@@ -473,177 +476,155 @@ html::after,
 body::before,
 body::after
 {
-  background-repeat : repeat;
   content           : "";
-  inset             : 0;
-  pointer-events    : none;
   position          : fixed;
+  inset             : -30vh -30vw;   /* oversized canvas => transform never exposes edges */
+  pointer-events    : none;
   transform         : translateZ(0);
-  will-change       : background-position, opacity, transform;
+  will-change       : transform, opacity;
   z-index           : 1;
+  background-repeat : repeat;
 }
 
-/* FAR A */
+/* FAR A — high-density micro specks + a few halos */
 html::before
 {
   background-image :
-    radial-gradient(circle at 12% 22%, var(--dust-steel-1) 0 0.7px, transparent 1.2px),
-    radial-gradient(circle at 78% 18%, var(--dust-steel-2) 0 1.1px, transparent 1.7px),
-    radial-gradient(circle at 20% 30%, var(--dust-steel-3) 0 1.0px, transparent 1.5px),
-    radial-gradient(circle at 70% 80%, var(--dust-steel-1) 0 1.2px, transparent 1.8px),
-    radial-gradient(circle at 40% 60%, var(--dust-steel-2) 0 1.4px, transparent 2.0px),
-    radial-gradient(circle at 12% 22%, rgba(180,196,210,0.16) 0 0.9px, transparent 3.2px),
-    radial-gradient(circle at 78% 18%, rgba(120,140,160,0.14) 0 1.3px, transparent 3.6px),
-    radial-gradient(circle at 20% 30%, rgba(150,170,190,0.14) 0 1.2px, transparent 3.4px),
-    radial-gradient(circle at 70% 80%, rgba(180,196,210,0.14) 0 1.4px, transparent 3.8px),
-    radial-gradient(circle at 40% 60%, rgba(120,140,160,0.12) 0 1.6px, transparent 4.0px),
-    radial-gradient(circle at 25% 45%, var(--dust-blue-core) 0 4.2px, transparent 6.2px),
-    radial-gradient(circle at 25% 45%, var(--dust-blue-halo) 0 7.0px, transparent 14px),
-    radial-gradient(circle at 60% 25%, var(--dust-cyan-core) 0 2.4px, transparent 4.4px),
-    radial-gradient(circle at 60% 25%, var(--dust-cyan-halo) 0 5.0px, transparent 11px);
-  background-size    :
-    180px 180px, 220px 220px, 180px 180px, 220px 220px, 260px 260px,
-    180px 180px, 220px 220px, 180px 180px, 220px 220px, 260px 260px,
-    580px 580px, 580px 580px, 360px 360px, 360px 360px;
-  background-position :
-    14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px,
-    14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px,
-    80px 200px, 80px 200px, 200px 60px, 200px 60px;
-  animation : far-wobble-a 140s linear infinite;
+    radial-gradient(circle at 8% 12%,   var(--dust-steel-1)   0 0.7px, transparent 1.2px),
+    radial-gradient(circle at 16% 24%,  var(--dust-steel-2)   0 0.7px, transparent 1.2px),
+    radial-gradient(circle at 24% 18%,  var(--ocean-1-core)   0 0.8px, transparent 1.3px),
+    radial-gradient(circle at 32% 28%,  var(--dust-steel-3)   0 0.8px, transparent 1.3px),
+    radial-gradient(circle at 40% 16%,  var(--ocean-2-core)   0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 48% 22%,  var(--cyan-core)      0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 56% 14%,  var(--blue-core)      0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 64% 26%,  var(--dust-steel-2)   0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 72% 18%,  var(--ocean-1-core)   0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 80% 30%,  var(--dust-steel-1)   0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 12% 72%,  var(--ocean-2-core)   0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 22% 64%,  var(--dust-steel-3)   0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 34% 78%,  var(--ocean-1-core)   0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 46% 70%,  var(--cyan-core)      0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 58% 82%,  var(--dust-steel-2)   0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 70% 74%,  var(--blue-core)      0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 84% 86%,  var(--ocean-1-core)   0 1.1px, transparent 1.7px),
+    radial-gradient(circle at 92% 68%,  var(--dust-steel-1)   0 1.1px, transparent 1.7px),
+    radial-gradient(circle at 28% 50%,  var(--ocean-deep)     0 3.0px, transparent 5.4px),
+    radial-gradient(circle at 66% 42%,  var(--ocean-1-halo)   0 6.0px, transparent 12px);
+
+  background-size :
+    180px 180px, 180px 180px, 180px 180px, 180px 180px, 180px 180px,
+    180px 180px, 180px 180px, 180px 180px, 180px 180px, 180px 180px,
+    220px 220px, 220px 220px, 220px 220px, 220px 220px, 220px 220px,
+    220px 220px, 260px 260px, 260px 260px, 520px 520px, 520px 520px;
+
+  opacity   : var(--far-op);
+  animation : far-layer-drift-a 137s linear infinite alternate;
 }
 
-/* FAR B */
+/* FAR B — medium specks + bright ocean accents */
 html::after
 {
   background-image :
-    radial-gradient(circle at 22% 12%, var(--dust-steel-1) 0 0.7px, transparent 1.1px),
-    radial-gradient(circle at 68% 28%, var(--dust-steel-2) 0 1.2px, transparent 1.8px),
-    radial-gradient(circle at 10% 70%, var(--dust-steel-3) 0 1.4px, transparent 2.0px),
-    radial-gradient(circle at 77% 84%, var(--dust-steel-1) 0 1.6px, transparent 2.3px),
-    radial-gradient(circle at 22% 12%, rgba(180,196,210,0.16) 0 0.9px, transparent 3.0px),
-    radial-gradient(circle at 68% 28%, rgba(120,140,160,0.14) 0 1.4px, transparent 3.6px),
-    radial-gradient(circle at 10% 70%, rgba(150,170,190,0.14) 0 1.6px, transparent 3.8px),
-    radial-gradient(circle at 77% 84%, rgba(180,196,210,0.14) 0 1.8px, transparent 4.2px),
-    radial-gradient(circle at 46% 36%, var(--dust-cyan-core) 0 2.0px, transparent 3.6px);
-  background-size    :
-    190px 190px, 230px 230px, 260px 260px, 300px 300px,
-    190px 190px, 230px 230px, 260px 260px, 300px 300px,
-    340px 340px;
-  background-position :
-    24px 18px, 80px 160px, 10px 90px, 130px 40px,
-    24px 18px, 80px 160px, 10px 90px, 130px 40px,
-    60px 120px;
-  animation : far-wobble-b 125s linear infinite;
+    radial-gradient(circle at 10% 10%,  var(--ocean-1-core)   0 0.9px, transparent 1.5px),
+    radial-gradient(circle at 22% 18%,  var(--dust-steel-2)   0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 36% 12%,  var(--dust-steel-3)   0 1.1px, transparent 1.7px),
+    radial-gradient(circle at 48% 20%,  var(--ocean-2-core)   0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 60% 14%,  var(--blue-core)      0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 74% 22%,  var(--cyan-core)      0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 86% 16%,  var(--ocean-1-core)   0 1.3px, transparent 1.9px),
+    radial-gradient(circle at 14% 76%,  var(--dust-steel-1)   0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 28% 68%,  var(--ocean-2-core)   0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 42% 80%,  var(--dust-steel-3)   0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 58% 72%,  var(--blue-core)      0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 72% 84%,  var(--ocean-1-core)   0 1.3px, transparent 1.9px),
+    radial-gradient(circle at 86% 76%,  var(--cyan-core)      0 1.3px, transparent 1.9px),
+    radial-gradient(circle at 50% 50%,  var(--ocean-deep)     0 3.6px, transparent 6.4px),
+    radial-gradient(circle at 32% 40%,  var(--ocean-2-halo)   0 6.4px, transparent 12.8px);
+
+  background-size :
+    200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px,
+    200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px,
+    200px 200px, 200px 200px, 200px 200px, 540px 540px, 540px 540px;
+
+  opacity   : var(--far-op);
+  animation : far-layer-drift-b 127s linear infinite alternate;
 }
 
-/* MID */
+/* MID — denser field + several larger ocean blues */
 body::before
 {
   background-image :
-    radial-gradient(circle at 15% 75%, var(--dust-steel-3) 0 1.0px, transparent 1.7px),
-    radial-gradient(circle at 80% 15%, var(--dust-steel-1) 0 1.3px, transparent 2.1px),
-    radial-gradient(circle at 52% 42%, var(--dust-steel-2) 0 1.6px, transparent 2.4px),
-    radial-gradient(circle at 15% 75%, rgba(150,170,190,0.16) 0 1.2px, transparent 3.6px),
-    radial-gradient(circle at 80% 15%, rgba(180,196,210,0.16) 0 1.5px, transparent 3.8px),
-    radial-gradient(circle at 52% 42%, rgba(120,140,160,0.14) 0 1.8px, transparent 4.2px),
-    radial-gradient(circle at 35% 65%, var(--dust-blue-core) 0 2.8px, transparent 4.6px),
-    radial-gradient(circle at 60% 10%, var(--dust-blue-core) 0 3.0px, transparent 4.8px),
-    radial-gradient(circle at 35% 65%, var(--dust-blue-halo) 0 5.0px, transparent 9.8px),
-    radial-gradient(circle at 60% 10%, var(--dust-blue-halo) 0 5.4px, transparent 10.2px),
-    radial-gradient(circle at 10% 50%, var(--dust-cyan-core) 0 2.2px, transparent 4.0px);
-  background-size    :
-    160px 160px, 200px 200px, 230px 230px,
-    160px 160px, 200px 200px, 230px 230px,
-    320px 320px, 340px 340px, 320px 320px, 340px 340px,
-    340px 340px;
-  background-position :
-    40px 40px, 100px 0, 0 100px,
-    40px 40px, 100px 0, 0 100px,
-    50px 220px, 140px 20px, 50px 220px, 140px 20px,
-    180px 70px;
+    radial-gradient(circle at 15% 75%, var(--dust-steel-3)   0 1.0px, transparent 1.7px),
+    radial-gradient(circle at 22% 68%, var(--ocean-1-core)   0 1.1px, transparent 1.8px),
+    radial-gradient(circle at 30% 62%, var(--dust-steel-2)   0 1.2px, transparent 1.9px),
+    radial-gradient(circle at 38% 56%, var(--blue-core)      0 1.2px, transparent 1.9px),
+    radial-gradient(circle at 46% 50%, var(--ocean-2-core)   0 1.3px, transparent 2.0px),
+    radial-gradient(circle at 54% 44%, var(--cyan-core)      0 1.3px, transparent 2.0px),
+    radial-gradient(circle at 62% 38%, var(--dust-steel-1)   0 1.3px, transparent 2.0px),
+    radial-gradient(circle at 70% 32%, var(--ocean-1-core)   0 1.4px, transparent 2.2px),
+    radial-gradient(circle at 78% 26%, var(--blue-core)      0 1.4px, transparent 2.2px),
+    radial-gradient(circle at 86% 20%, var(--ocean-2-core)   0 1.4px, transparent 2.2px),
+    radial-gradient(circle at 20% 40%, var(--ocean-deep)     0 3.0px, transparent 5.6px),
+    radial-gradient(circle at 60% 60%, var(--ocean-deep)     0 3.6px, transparent 6.2px),
+    radial-gradient(circle at 42% 72%, var(--ocean-1-halo)   0 6.0px, transparent 12.0px),
+    radial-gradient(circle at 74% 34%, var(--ocean-2-halo)   0 6.6px, transparent 13.2px);
+
+  background-size :
+    220px 220px, 220px 220px, 220px 220px, 220px 220px, 220px 220px,
+    220px 220px, 220px 220px, 220px 220px, 220px 220px, 220px 220px,
+    520px 520px, 520px 520px, 560px 560px, 560px 560px;
+
   opacity   : var(--mid-op);
-  animation : drift-mid 74s linear infinite, twinkle-glow-mid 22s infinite;
+  animation : mid-layer-drift 73s linear infinite alternate;
 }
 
-/* NEAR */
+/* NEAR — brightest sparse large dots (few, very blue) */
 body::after
 {
   background-image :
-    radial-gradient(circle at 30% 20%, var(--dust-steel-2) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 85% 70%, var(--dust-steel-1) 0 1.5px, transparent 2.3px),
-    radial-gradient(circle at 62% 18%, var(--dust-steel-3) 0 1.9px, transparent 2.7px),
-    radial-gradient(circle at 30% 20%, rgba(120,140,160,0.16) 0 1.3px, transparent 3.9px),
-    radial-gradient(circle at 85% 70%, rgba(180,196,210,0.16) 0 1.7px, transparent 4.3px),
-    radial-gradient(circle at 62% 18%, rgba(150,170,190,0.14) 0 2.1px, transparent 4.7px),
-    radial-gradient(circle at 40% 40%, var(--dust-blue-core) 0 3.6px, transparent 5.6px),
-    radial-gradient(circle at 55% 60%, var(--dust-blue-core) 0 4.2px, transparent 6.6px),
-    radial-gradient(circle at 40% 40%, var(--dust-blue-halo) 0 6.6px, transparent 12px),
-    radial-gradient(circle at 55% 60%, var(--dust-blue-halo) 0 7.2px, transparent 14px),
-    radial-gradient(circle at 20% 70%, var(--dust-cyan-core) 0 2.6px, transparent 4.6px);
-  background-size    :
-    150px 150px, 190px 190px, 220px 220px,
-    150px 150px, 190px 190px, 220px 220px,
-    340px 340px, 380px 380px, 340px 340px, 380px 380px,
-    360px 360px;
-  background-position :
-    20px 120px, 120px 40px, 80px 80px,
-    20px 120px, 120px 40px, 80px 80px,
-    60px 180px, 150px 210px, 60px 180px, 150px 210px,
-    100px 260px;
+    radial-gradient(circle at 30% 20%, var(--ocean-2-core) 0 1.6px, transparent 2.6px),
+    radial-gradient(circle at 55% 60%, var(--ocean-1-core) 0 1.8px, transparent 2.8px),
+    radial-gradient(circle at 70% 40%, var(--ocean-deep)   0 2.4px, transparent 3.4px),
+    radial-gradient(circle at 45% 75%, var(--blue-core)    0 1.8px, transparent 2.8px),
+    radial-gradient(circle at 25% 55%, var(--cyan-core)    0 1.8px, transparent 2.8px),
+    radial-gradient(circle at 60% 20%, var(--ocean-deep)   0 3.2px, transparent 4.6px),
+    radial-gradient(circle at 80% 75%, var(--ocean-1-halo) 0 7.2px, transparent 14.4px);
+
+  background-size :
+    260px 260px, 260px 260px, 280px 280px, 260px 260px, 260px 260px, 620px 620px, 600px 600px;
+
   opacity   : var(--near-op);
-  animation : drift-near 62s linear infinite, twinkle-glow-near 20s infinite;
+  animation : near-layer-drift 61s linear infinite alternate;
+}
+
+/* Transform drift (no wrap => no jumps) */
+@keyframes far-layer-drift-a
+{
+  0%   { transform : translate(   0px,    0px); }
+  100% { transform : translate(-320px, -260px); }
+}
+
+@keyframes far-layer-drift-b
+{
+  0%   { transform : translate(  0px,   0px); }
+  100% { transform : translate(300px, 260px); }
+}
+
+@keyframes mid-layer-drift
+{
+  0%   { transform : translate(   0px,    0px); }
+  100% { transform : translate(-300px, -240px); }
+}
+
+@keyframes near-layer-drift
+{
+  0%   { transform : translate(  0px,   0px); }
+  100% { transform : translate(320px, 300px); }
 }
 
 /****************************************************************************************************
  *
- *    13) Animations
- *
- ****************************************************************************************************/
-@keyframes far-wobble-a
-{
-  0%   { background-position : 14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px, 14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px, 80px 200px, 80px 200px, 200px 60px, 200px 60px; }
-  50%  { background-position : 13px 27px, 119px 9px, -1px -1px, 59px 119px, 119px 59px, 13px 27px, 119px 9px, -1px -1px, 59px 119px, 119px 59px, 79px 199px, 79px 199px, 199px 59px, 199px 59px; }
-  100% { background-position : 14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px, 14px 28px, 120px 10px, 0 0, 60px 120px, 120px 60px, 80px 200px, 80px 200px, 200px 60px, 200px 60px; }
-}
-
-@keyframes far-wobble-b
-{
-  0%   { background-position : 24px 18px, 80px 160px, 10px 90px, 130px 40px, 24px 18px, 80px 160px, 10px 90px, 130px 40px, 60px 120px; }
-  50%  { background-position : 23px 17px, 79px 159px, 9px 89px, 128px 38px, 23px 17px, 79px 159px, 9px 89px, 128px 38px, 59px 119px; }
-  100% { background-position : 24px 18px, 80px 160px, 10px 90px, 130px 40px, 24px 18px, 80px 160px, 10px 90px, 130px 40px, 60px 120px; }
-}
-
-@keyframes twinkle-glow-mid
-{
-  0%   { opacity : var(--twinkle-min-mid); animation-timing-function : cubic-bezier(0.30,0.00,0.15,1.00); }
-  46%  { opacity : var(--twinkle-max-mid); }
-  62%  { opacity : var(--twinkle-max-mid); animation-timing-function : cubic-bezier(0.30,0.00,0.15,1.00); }
-  100% { opacity : var(--twinkle-min-mid); }
-}
-
-@keyframes twinkle-glow-near
-{
-  0%   { opacity : var(--twinkle-min-near); animation-timing-function : cubic-bezier(0.28,0.00,0.14,1.00); }
-  42%  { opacity : var(--twinkle-max-near); }
-  60%  { opacity : var(--twinkle-max-near); animation-timing-function : cubic-bezier(0.28,0.00,0.14,1.00); }
-  100% { opacity : var(--twinkle-min-near); }
-}
-
-@keyframes drift-mid
-{
-  0%   { background-position : 40px 40px, 100px 0, 0 100px, 40px 40px, 100px 0, 0 100px, 50px 220px, 140px 20px, 50px 220px, 140px 20px, 180px 70px; }
-  100% { background-position : -260px -200px, -160px -240px, -200px -160px, -260px -200px, -160px -240px, -200px -160px, -220px -260px, -180px -200px, -220px -260px, -180px -200px, -300px -240px; }
-}
-
-@keyframes drift-near
-{
-  0%   { background-position : 20px 120px, 120px 40px, 80px 80px, 20px 120px, 120px 40px, 80px 80px, 60px 180px, 150px 210px, 60px 180px, 150px 210px, 100px 260px; }
-  100% { background-position : 300px 260px, 220px 300px, 260px 220px, 300px 260px, 220px 300px, 260px 220px, 320px 300px, 280px 320px, 320px 300px, 280px 320px, 260px 360px; }
-}
-
-/****************************************************************************************************
- *
- *    14) Accessibility & Print
+ *    13) Accessibility & Print
  *
  ****************************************************************************************************/
 @media (prefers-reduced-motion:reduce)
@@ -651,10 +632,12 @@ body::after
   html::before,
   html::after,
   body::before,
-  body::after
+  body::after,
+  .twinkle-layer
   {
     animation             : none !important;
     background-attachment : fixed;
+    opacity               : 0.45;
   }
 }
 
@@ -663,22 +646,148 @@ body::after
   html::before,
   html::after,
   body::before,
-  body::after
+  body::after,
+  .twinkle-layer
   {
     display : none !important;
   }
 }
 
+/****************************************************************************************************
+ *
+ *    14) Twinkle overlays — denser, independent glow + transform drift
+ *
+ ****************************************************************************************************/
+.twinkle-layer
+{
+  position        : fixed;
+  inset           : -30vh -30vw;
+  pointer-events  : none;
+  z-index         : 1;
+  will-change     : transform, opacity;
+  mix-blend-mode  : normal;
+}
 
+/* Tiny, very dense */
+.twinkle-1
+{
+  background-image :
+    radial-gradient(circle at 10% 12%, rgba( 36,149,214,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 18% 26%, rgba(  0,139,190,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 26% 18%, rgba( 70,130,180,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 34% 30%, rgba( 72,173,210,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 42% 22%, rgba(  0,115,230,0.92) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 50% 34%, rgba( 36,149,214,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 58% 26%, rgba(  0,139,190,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 66% 38%, rgba( 70,130,180,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 74% 30%, rgba( 72,173,210,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 82% 42%, rgba(  0,115,230,0.92) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 14% 72%, rgba( 36,149,214,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 22% 64%, rgba(  0,139,190,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 30% 76%, rgba( 70,130,180,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 38% 68%, rgba( 72,173,210,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 46% 80%, rgba(  0,115,230,0.92) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 54% 72%, rgba( 36,149,214,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 62% 84%, rgba(  0,139,190,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 70% 76%, rgba( 70,130,180,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 78% 88%, rgba( 72,173,210,0.85) 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 86% 80%, rgba(  0,115,230,0.92) 0 1.0px, transparent 1.6px);
+  background-size :
+    180px 180px, 180px 180px, 180px 180px, 180px 180px, 220px 220px,
+    180px 180px, 180px 180px, 180px 180px, 180px 180px, 220px 220px,
+    180px 180px, 180px 180px, 180px 180px, 180px 180px, 220px 220px,
+    180px 180px, 180px 180px, 180px 180px, 180px 180px, 220px 220px;
+  animation :
+    twinkle-1-opacity 19s ease-in-out infinite alternate,
+    twinkle-1-drift   97s linear      infinite alternate;
+  opacity : 0.55;
+}
 
+/* Medium density */
+.twinkle-2
+{
+  background-image :
+    radial-gradient(circle at 12% 18%, rgba( 36,149,214,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 26% 22%, rgba(  0,139,190,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 42% 26%, rgba( 70,130,180,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 58% 30%, rgba( 72,173,210,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 74% 34%, rgba(  0,115,230,0.92) 0 1.4px, transparent 2.0px),
+    radial-gradient(circle at 18% 74%, rgba( 36,149,214,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 34% 70%, rgba(  0,139,190,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 50% 66%, rgba( 70,130,180,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 66% 62%, rgba( 72,173,210,0.83) 0 1.0px, transparent 1.6px),
+    radial-gradient(circle at 82% 58%, rgba(  0,115,230,0.92) 0 1.4px, transparent 2.0px);
+  background-size :
+    200px 200px, 200px 200px, 200px 200px, 200px 200px, 240px 240px,
+    200px 200px, 200px 200px, 200px 200px, 200px 200px, 240px 240px;
+  animation :
+    twinkle-2-opacity 23s ease-in-out infinite alternate,
+    twinkle-2-drift   105s linear      infinite alternate;
+  animation-delay :
+    2.2s, 0s;
+  opacity : 0.62;
+}
 
+/* Larger bright specks (few) */
+.twinkle-3
+{
+  background-image :
+    radial-gradient(circle at 22% 20%, rgba( 36,149,214,0.78) 0 1.6px, transparent 2.4px),
+    radial-gradient(circle at 64% 72%, rgba(  0,139,190,0.82) 0 1.8px, transparent 2.6px),
+    radial-gradient(circle at 44% 36%, rgba(  0,115,230,0.96) 0 2.2px, transparent 3.0px),
+    radial-gradient(circle at 72% 46%, rgba( 72,173,210,0.82) 0 1.7px, transparent 2.5px);
+  background-size :
+    240px 240px, 260px 260px, 300px 300px, 240px 240px;
+  animation :
+    twinkle-3-opacity 31s ease-in-out infinite alternate,
+    twinkle-3-drift   117s linear      infinite alternate;
+  animation-delay :
+    1.1s, 0s;
+  opacity : 0.70;
+}
 
+/* Per-layer opacity cycles — endpoints equal (no pops) */
+@keyframes twinkle-1-opacity
+{
+  0%   { opacity : 0.44; }
+  52%  { opacity : var(--twinkle-max); }
+  100% { opacity : 0.44; }
+}
+@keyframes twinkle-2-opacity
+{
+  0%   { opacity : 0.40; }
+  54%  { opacity : var(--twinkle-max); }
+  100% { opacity : 0.40; }
+}
+@keyframes twinkle-3-opacity
+{
+  0%   { opacity : 0.36; }
+  56%  { opacity : 0.84; }
+  100% { opacity : 0.36; }
+}
 
+/* Transform drift (no wrap) */
+@keyframes twinkle-1-drift
+{
+  0%   { transform : translate(   0px,    0px); }
+  100% { transform : translate(-240px, -200px); }
+}
+@keyframes twinkle-2-drift
+{
+  0%   { transform : translate(  0px,  0px); }
+  100% { transform : translate(260px, 220px); }
+}
+@keyframes twinkle-3-drift
+{
+  0%   { transform : translate(   0px,    0px); }
+  100% { transform : translate(-300px, -250px); }
+}
 
-
-
-
-/* ---------- Sun orb: bottom-left elliptical orbit (smooth, 3D) ---------- */
+/****************************************************************************************************
+ *
+ *    15) Sun orb (bottom-left elliptical orbit — smooth, 3D)
+ *
+ ****************************************************************************************************/
 #bg-sun
 {
   position       : fixed;
@@ -688,8 +797,7 @@ body::after
   height         : 320px;
   border-radius  : 50%;
   pointer-events : none;
-  z-index        : 0;  /* behind dust (z=1) and resume (z=2) */
-  /* warm sun glow (yellows) */
+  z-index        : 0;
   box-shadow     : inset      0    0   60px #ffffff,
                    inset     22px  0   90px #ffd54d,
                    inset    -22px  0   90px #ffb300,
@@ -705,69 +813,24 @@ body::after
   animation      : sun-ellipse-bottom-left 140s linear infinite;
 }
 
-/* Smooth tilted ellipse located mostly bottom-left of center.
-   We sample the ellipse with many keyframes to avoid any directional snap.
-   Scale/blur/opacity modulate to suggest “far/near” depth. */
 @keyframes sun-ellipse-bottom-left
 {
-  /* far (upper-left of the loop): smaller, dimmer, blurrier */
-  0%
-  {
-    transform : translate(-50%, -50%) translate(-34vw, 12vh) rotate(-12deg) scale(0.84);
-    filter    : blur(1.4px);
-    opacity   : 0.74;
-  }
-  12.5%
-  {
-    transform : translate(-50%, -50%) translate(-29vw, 8vh) rotate(-8deg) scale(0.90);
-    filter    : blur(1.1px);
-    opacity   : 0.80;
-  }
-  25%
-  {
-    transform : translate(-50%, -50%) translate(-24vw, 6vh) rotate(-4deg) scale(0.95);
-    filter    : blur(0.9px);
-    opacity   : 0.84;
-  }
-  37.5%
-  {
-    transform : translate(-50%, -50%) translate(-18vw, 10vh) rotate(0deg) scale(1.03);
-    filter    : blur(0.7px);
-    opacity   : 0.87;
-  }
-  /* near (lower-right of the loop area, still on left half of screen): larger, brighter, sharper */
-  50%
-  {
-    transform : translate(-50%, -50%) translate(-10vw, 28vh) rotate(6deg) scale(1.16);
-    filter    : blur(0.3px);
-    opacity   : 0.93;
-  }
-  62.5%
-  {
-    transform : translate(-50%, -50%) translate(-16vw, 34vh) rotate(3deg) scale(1.08);
-    filter    : blur(0.5px);
-    opacity   : 0.89;
-  }
-  75%
-  {
-    transform : translate(-50%, -50%) translate(-28vw, 36vh) rotate(-2deg) scale(1.00);
-    filter    : blur(0.7px);
-    opacity   : 0.86;
-  }
-  87.5%
-  {
-    transform : translate(-50%, -50%) translate(-33vw, 26vh) rotate(-8deg) scale(0.91);
-    filter    : blur(1.0px);
-    opacity   : 0.80;
-  }
-  100%
-  {
-    transform : translate(-50%, -50%) translate(-34vw, 12vh) rotate(-12deg) scale(0.84);
-    filter    : blur(1.4px);
-    opacity   : 0.74;
-  }
+  0%   { transform : translate(-50%, -50%) translate(-34vw, 12vh) rotate(-12deg) scale(0.84); filter : blur(1.4px); opacity : 0.74; }
+  12.5%{ transform : translate(-50%, -50%) translate(-29vw,  8vh) rotate( -8deg) scale(0.90); filter : blur(1.1px); opacity : 0.80; }
+  25%  { transform : translate(-50%, -50%) translate(-24vw,  6vh) rotate( -4deg) scale(0.95); filter : blur(0.9px);  opacity : 0.84; }
+  37.5%{ transform : translate(-50%, -50%) translate(-18vw, 10vh) rotate(  0deg) scale(1.03); filter : blur(0.7px);  opacity : 0.87; }
+  50%  { transform : translate(-50%, -50%) translate(-10vw, 28vh) rotate(  6deg) scale(1.16); filter : blur(0.3px);  opacity : 0.93; }
+  62.5%{ transform : translate(-50%, -50%) translate(-16vw, 34vh) rotate(  3deg) scale(1.08); filter : blur(0.5px);  opacity : 0.89; }
+  75%  { transform : translate(-50%, -50%) translate(-28vw, 36vh) rotate( -2deg) scale(1.00); filter : blur(0.7px);  opacity : 0.86; }
+  87.5%{ transform : translate(-50%, -50%) translate(-33vw, 26vh) rotate( -8deg) scale(0.91); filter : blur(1.0px);  opacity : 0.80; }
+  100% { transform : translate(-50%, -50%) translate(-34vw, 12vh) rotate(-12deg) scale(0.84); filter : blur(1.4px);  opacity : 0.74; }
 }
 
+/****************************************************************************************************
+ *
+ *    16) Mobile layout fix
+ *
+ ****************************************************************************************************/
 @media (max-width:768px)
 {
   .resume

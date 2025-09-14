@@ -36,6 +36,11 @@
 
   <div id="bg-sun" aria-hidden="true"></div>
 
+  <!-- independent twinkle overlays (for per-particle glow) -->
+  <div class="twinkle-layer twinkle-1" aria-hidden="true"></div>
+  <div class="twinkle-layer twinkle-2" aria-hidden="true"></div>
+  <div class="twinkle-layer twinkle-3" aria-hidden="true"></div>
+
   <div id="banner">
     <h1>
       This site is currently under construction. Please <a href="https://heracliteanflux.github.io/laptoplab/">take a look at the laptop lab</a> and <a href="https://www.linkedin.com/in/heracliteanflux/">reach out to me on LinkedIn</a> in the meantime :)
@@ -309,11 +314,9 @@
   <script>
     function printResume (mode)
     {
-      // disable both
       document.getElementById("print-timeline").disabled = true;
       document.getElementById("print-simplified").disabled = true;
 
-      // enable the chosen stylesheet
       if (mode == "timeline")
       {
         document.getElementById("print-timeline").disabled = false;
@@ -323,7 +326,6 @@
         document.getElementById("print-simplified").disabled = false;
       }
 
-      // trigger print dialog (give the browser a moment to apply CSS before printing)
       setTimeout(() => window.print(), 100);
     }
   </script>
