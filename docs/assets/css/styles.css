@@ -20,7 +20,7 @@
 
   /* work experience design */
   --line-x           : 5px;
-  --line-width       : 2px;
+  --line-width       : 1.5px;
   --dot-size         : 10px;
 
   /* Steely + ocean blues */
@@ -524,20 +524,20 @@ body.dark .theme-toggle .icon-sun
 
 .role
 {
-  position     : relative;
-  padding-left : 2.2rem;
   margin       : 1.2rem 0 0;
+  padding-left : 2.2rem;
+  position     : relative;
 }
 
 .role::before
 {
-  content    : "";
-  position   : absolute;
-  left       : 0.8rem;
-  top        : 0.6rem;
+  background : var(--primary-color); /* line color */
   bottom     : -1.2rem;
-  width      : var(--line-width);
-  background : var(--line-color);
+  content    : "";
+  left       : 0.8rem;
+  position   : absolute;
+  top        : 0.6rem;
+  width      : var(--line-width);    /* line width */
 }
 
 .role.last::before
@@ -547,15 +547,15 @@ body.dark .theme-toggle .icon-sun
 
 .role .timeline-dot
 {
+  background    : var(--primary-color);              /* dot color */
+  border-radius : 50%;                               /* dot */
+  box-shadow    : 0 0 0 3px rgba(70,130,180,0.18); /* dot glow */
+  height        : 12px;                              /* dot diameter */
+  left          : 0.3rem;                            /* dot horizontal placement */
   position      : absolute;
-  top           : 0;
-  left          : 0.4rem;
-  width         : 12px;
-  height        : 12px;
-  border-radius : 50%;
-  background    : var(--primary-color);
-  box-shadow    : 0 0 0 3px rgba(70,130,180,0.18);
-  transition    : background var(--transition-fast) ease;
+  /* top           : 0; */
+  /* transition    : background var(--transition-fast) ease; */
+  width         : 12px;                              /* dot diameter */
 }
 
 /****************************************************************************************************
