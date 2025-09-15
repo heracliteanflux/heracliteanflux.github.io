@@ -412,6 +412,112 @@ body.dark .theme-toggle .icon-sun
   margin    : -20px 0 0 0;
 }
 
+.q2 .contact-icons
+{
+  /* strings stored here to avoid JS */
+  --email    : "davefriedman@pm.me";
+  --linkedin : "https://linkedin.com/in/heracliteanflux";
+  --github   : "https://github.com/heracliteanflux";
+
+  margin-top : 12px;
+}
+
+.q2 .contact-icons .icons-row
+{
+  display    : flex;
+  gap        : 0.5rem;
+  align-items: center;
+}
+
+/* square blue buttons that behave exactly like the top-right buttons */
+.btn-icon
+{
+  width          : 28px;                 /* match theme toggle height */
+  height         : 28px;
+  padding        : 0;                    /* square */
+  display        : grid;
+  place-items    : center;
+  border-radius  : 6px;
+  line-height    : 1;
+}
+
+.btn-icon i
+{
+  font-size : 14px;                      /* icon size harmonizes with 28px square */
+}
+
+/* reveal line under icons */
+.q2 .contact-icons .contact-reveal
+{
+  min-height : 1.25em;
+  margin-top : 6px;
+  letter-spacing : .005em;
+  opacity    : 0;
+  transform  : translateY(-2px);
+  transition : opacity var(--transition-fast) ease,
+               transform var(--transition-fast) ease;
+  pointer-events : none;
+}
+
+/* only visible while any icon is hovered */
+.q2 .contact-icons:has(.btn-icon:hover) .contact-reveal
+{
+  opacity   : 1;
+  transform : translateY(0);
+}
+
+/* swapping content per hovered icon (no JS) */
+.q1 .contact-icons .contact-reveal::after
+{
+  content : "";
+  display : inline-block;
+
+  /* shine sweep via background clip */
+  background-image : linear-gradient(
+    100deg,
+    currentColor 0%, currentColor 40%,
+    #ffffff 50%,
+    currentColor 60%, currentColor 100%
+  );
+  -webkit-background-clip : text;
+  background-clip         : text;
+  color                   : transparent;
+  background-size         : 200% 100%;
+  background-position     : 0% 0%;
+  font-size               : 12px;               /* aligns with button label sizing */
+  font-weight             : 600;
+  letter-spacing          : 0.01em;
+}
+
+.q2 .contact-icons:has(.email.btn-icon:hover)    .contact-reveal::after { content: var(--email); }
+.q2 .contact-icons:has(.linkedin.btn-icon:hover) .contact-reveal::after { content: var(--linkedin); }
+.q2 .contact-icons:has(.github.btn-icon:hover)   .contact-reveal::after { content: var(--github); }
+
+/* shine while visible */
+@keyframes contact-shine
+{
+  from { background-position :   0% 0%; }
+  to   { background-position : 100% 0%; }
+}
+
+.q2 .contact-icons:has(.btn-icon:hover) .contact-reveal::after
+{
+  animation : contact-shine .8s ease-out;
+}
+
+@media (prefers-reduced-motion:reduce)
+{
+  .q2 .contact-icons .contact-reveal::after { animation : none !important; }
+}
+
+/****************************************************************************************************
+ *    Q3 - CONTACT (bottom-left) — hide (moved to top-left so Skills/Coursework shift up)
+ */
+.q3 .contact.section
+{
+  display : none;
+}
+
 /****************************************************************************************************
  *
  *    Q3 - contact & skills
@@ -995,7 +1101,7 @@ body.dark body::after   { background-position : -16px  -8px,  18px -12px, -21px 
   75%  { transform : translate(-50%, -50%) translate(-28vw, 36vh) rotate( -2deg) scale(1.00); filter : blur(0.7px);  opacity : 0.86; }
   87.5%{ transform : translate(-50%, -50%) translate(-33vw, 26vh) rotate( -8deg) scale(0.91); filter : blur(1.0px);  opacity : 0.80; }
   100% { transform : translate(-50%, -50%) translate(-34vw, 12vh) rotate(-12deg) scale(0.84); filter : blur(1.4px);  opacity : 0.74; }
-
+}
 
 
 /****************************************************************************************************

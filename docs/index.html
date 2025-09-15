@@ -30,6 +30,7 @@
   <link                       rel="stylesheet" type="text/css" href="assets/css/styles.css"         />
   <!-- <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css"   disabled /> -->
   <link id="print-simplified" rel="stylesheet" type="text/css" href="assets/css/print.css" disabled />
+  <link                       rel="stylesheet"                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
 </head>
 
@@ -112,15 +113,46 @@
         +-------------------------------------------------->
     <header class="top rght q2">
 
-      <!-- name -->
+      <!-- NAME -->
       <h1>
         <span class="name_frst">Dave</span>
         <span class="name_last">Friedman</span>
       </h1>
 
+      <!-- INTRODUCTION -->
       <p class="introduction">
         Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX
       </p>
+
+      <!--+--------------------------------------------------------------------------------------------------
+          |    CONTACT (icons row + hover-reveal text) — moved from bottom-left to top-left
+          +-------------------------------------------------------------------------------------------------->
+      <section id="contact-icons" class="section contact-icons" aria-label="Contact (icons)">
+        <div class="icons-row">
+          <a class="btn-download btn-icon email"
+             href="mailto:davefriedman@pm.me"
+             aria-label="Email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </a>
+
+          <a class="btn-download btn-icon linkedin"
+             href="https://linkedin.com/in/heracliteanflux"
+             target="_blank" rel="noopener"
+             aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+
+          <a class="btn-download btn-icon github"
+             href="https://github.com/heracliteanflux"
+             target="_blank" rel="noopener"
+             aria-label="GitHub">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="contact-reveal" aria-live="polite" aria-atomic="true"></div>
+      </section>
+
 
     </header>
 
