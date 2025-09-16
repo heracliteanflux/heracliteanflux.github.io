@@ -97,6 +97,7 @@ body
 {
   background-color : var(--color-background);
   color            : var(--color-text);
+  margin           : 0;
   position         : relative;
   transition       : background-color var(--transition-slow) ease,
                      color            var(--transition-slow) ease;
