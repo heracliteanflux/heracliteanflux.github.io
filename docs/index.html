@@ -3,433 +3,359 @@
 
 
 
-<!--+----------------------------------------------------------------------------------------------------------------------------------------------------
-    |
-    |    head
-    |
-    +---------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------
+ |
+ |    head
+ |
+ +-------------------------------------------------->
 <head>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3FHXK217B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    gtag('config', 'G-H3FHXK217B');
-  </script>
+<!-- -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <!-- -->
-  <meta charset="UTF-8" />
-  <meta name="viewport"              content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-  <!-- -->
-  <title>Dave Friedman</title>
-  <link                       rel="stylesheet" type="text/css" href="assets/css/styles.css"         />
-  <!-- <link id="print-timeline"   rel="stylesheet" type="text/css" href="assets/css/print-timeline.css"   disabled /> -->
-  <link id="print-simplified" rel="stylesheet" type="text/css" href="assets/css/print.css" disabled />
-  <link                       rel="stylesheet"                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+<!-- -->
+<title></title>
+<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+<link rel="stylesheet"                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
 </head>
 
 
 
-<!--+----------------------------------------------------------------------------------------------------------------------------------------------------
-    |
-    |    body
-    |
-    +---------------------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------
+ |
+ |    body
+ |
+ +-------------------------------------------------->
 <body>
 
-  <!--+----------------------------------------------------------------------------------------------------
-      |
-      |    background
-      |
-      +---------------------------------------------------------------------------------------------------->
-  <div id="bg-sun"                            aria-hidden="true"></div>
-  <!-- independent twinkle overlays (for per-particle glow) -->
-  <div class="twinkle-layer twinkle-1"        aria-hidden="true"></div>
-  <div class="twinkle-layer twinkle-2"        aria-hidden="true"></div>
-  <div class="twinkle-layer twinkle-3"        aria-hidden="true"></div>
-  <div class="twinkle-layer twinkle-scramble" aria-hidden="true"></div>
+<!----------------------------------------------------------------------------------------------------
+ |
+ |    banner
+ |
+ +---------------------------------------------------------------------------------------------------->
+<div id="banner">
+  <h1>
+    This site is currently under construction.
+    Please <a href="https://heracliteanflux.github.io/laptoplab/">take a look at the laptop lab</a>
+    and    <a href="https://www.linkedin.com/in/heracliteanflux/">reach out on LinkedIn</a> in the meantime!
+  </h1>
+</div>
 
-  <!--+----------------------------------------------------------------------------------------------------
-      |
-      |    banner
-      |
-      +---------------------------------------------------------------------------------------------------->
-  <div id="banner">
-    <h1>
-        This site is currently under construction.
-        Please <a href="https://heracliteanflux.github.io/laptoplab/">take a look at the laptop lab</a>
-        and    <a href="https://www.linkedin.com/in/heracliteanflux/">reach out to me on LinkedIn</a> in the meantime!
-    </h1>
+
+<!----------------------------------------------------------------------------------------------------
+ |
+ |    background
+ |
+ +---------------------------------------------------------------------------------------------------->
+<div id="sun"                               aria-hidden="true"></div>
+<div class="twinkle-layer twinkle-1"        aria-hidden="true"></div>
+<div class="twinkle-layer twinkle-2"        aria-hidden="true"></div>
+<div class="twinkle-layer twinkle-3"        aria-hidden="true"></div>
+<div class="twinkle-layer twinkle-scramble" aria-hidden="true"></div>
+
+
+<!----------------------------------------------------------------------------------------------------
+ |
+ |    resume
+ |
+ +---------------------------------------------------------------------------------------------------->
+<main id="resume">
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------
+ |
+ |    buttons
+ |
+ +------------------------------------------------------------------------------------------------------------------------------------------------------>
+<div class="buttons">
+  <a class="button" href="./assets/pdf/resume.pdf" download="resume.pdf" aria-label="download pdf">Download</a>
+  <a class="button" onclick="printResume()">Print</a>
+  <button id="theme-toggle" class="button" aria-label="toggle dark mode" title="toggle dark mode">
+    <span class="icon-sun"  aria-hidden="true">☀︎</span>
+    <span class="icon-moon" aria-hidden="true">☾</span>
+  </button>
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------
+ |
+ |    Q1 (top left) - profile picture
+ |
+ +------------------------------------------------------------------------------------------------------------------------------------------------------>
+<div class="top left q1">
+  <img id="profile-picture" src="./assets/img/profile-picture.png" alt="Dave Friedman"/>
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------
+ |
+ |    Q2 (top right) - profile introduction
+ |
+ +------------------------------------------------------------------------------------------------------------------------------------------------------>
+<header class="top rght q2">
+  <!-- NAME -->
+  <h1>
+    <span class="name frst">Dave    </span>
+    <span class="name last">Friedman</span>
+  </h1>
+  <!-- INTRO -->
+  <p class="intro">
+    Open to roles in system administration and programming, and network engineering and security.
+    Experienced with bash, linux, networks, and python.
+  </p>
+  <!-- CONTACT - WEB (unhidden by default) -->
+  <section id="contact-web" aria-label="contact">
+    <div class="icons-row">
+      <a class="button button-icon email"    href="mailto:davefriedman@pm.me" aria-label="email">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+      <a class="button button-icon linkedin" href="https://linkedin.com/in/heracliteanflux" target="_blank" rel="noopener" aria-label="linkedin">
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+      <a class="button button-icon github" href="https://github.com/heracliteanflux" target="_blank" rel="noopener" aria-label="github">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="contact-reveal" aria-live="polite" aria-atomic="true"></div>
+  </section>
+  <!-- CONTACT - PRINT (hidden by default) -->
+  <section id="contact-print">
+  </section>
+</header>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------
+ |
+ |    Q3 (bottom left) - skills
+ |
+ +------------------------------------------------------------------------------------------------------------------------------------------------------>
+<div class="bot left q3">
+
+<section>
+  <h3 class="title">Skills</h3>
+  <ul>
+    <li>Ansible network automation and configuration</li>
+    <li>Apache Spark big-data programming</li>
+    <li>Applied mathematics</li>
+    <li>Amazon Web Services cloud management</li>
+    <li>Anaconda package and environment management</li>
+    <li>Bash shell scripting and configuration</li>
+    <li>C programming</li>
+    <li>Computer networks</li>
+    <li>Data analytics and visualization</li>
+    <li>Git version control</li>
+    <li>Linux/Unix administration and hardening</li>
+    <li>Mathematics typesetting</li>
+    <li>OpenSSH authentication and remote server management</li>
+    <li>PostgreSQL relational database management</li>
+    <li>Python development</li>
+    <li>R programming</li>
+    <li>SQL</li>
+    <li>Systems administration and programming</li>
+    <li>Technical documentation</li>
+    <li>Web development</li>
+    <li>Zsh scripting and configuration</li>
+    <li>Analysis</li>
+    <li>Critical thinking</li>
+    <li>Detail orientation</li>
+    <li>Organization</li>
+    <li>Research</li>
+    <li>Japanese</li>
+    <li>Linguistics</li>
+    <li>Spanish</li>
+  </ul>
+</section>
+
+<section>
+  <h3 class="title">Coursework</h3>
+  <ul>
+    <li>Penn State's CYBER 497 Machine Learning Security</li>
+    <li>Penn State's CYBER 497 Blockchain</li>
+    <li>Penn State's CYBER 362 Cybersecurity Analytics Studio</li>
+    <li>Penn State's CYBER 262 Cyber-Defense Studio</li>
+    <li>Penn State's CYBER 100 Computer Systems Literacy</li>
+    <li>Penn State's CMPSC 497 Cryptography</li>
+    <li>Penn State's CMPSC 465 Algorithms and Data Structures</li>
+    <li>Penn State's CMPSC 410 Programming Models for Big Data</li>
+    <li>Penn State's CMPSC 360 Discrete Mathematics for Computer Science</li>
+    <li>Penn State's CMPSC 311 Systems Programming</li>
+    <li>Penn State's CMPSC 221 Object-Oriented Programming with Web-Based Applications</li>
+    <li>Penn State's CMPSC 132 Programming and Computation II: Data Structures</li>
+    <li>Penn State's CMPSC 131 Programming and Computation I: Fundamentals</li>
+    <li>Penn State's CMPEN 270 Digital Design: Theory and Practice</li>
+    <li>Penn State's DS 220 Data Management for Data Sciences</li>
+    <li>Penn State's IST 451 Networking Security</li>
+    <li>Penn State's IST 220 Networking and Telecommunications</li>
+    <li>Penn State's IST 210 Organization of Data</li>
+    <li>Penn State's MATH 484 Linear Programming</li>
+    <li>Penn State's MATH 468 Mathematical Coding</li>
+    <li>Penn State's MATH 457 Mathematical Logic</li>
+    <li>Penn State's MATH 220 Matrices</li>
+  </ul>
+</section>
+
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------
+ |
+ |    Q4 (bottom right) - work, projects
+ |
+ +------------------------------------------------------------------------------------------------------------------------------------------------------>
+<div class="bot rght q4">
+
+<!-- WORK EXPERIENCE -->
+<section>
+  <h3 class="title">Work Experience</h3>
+
+  <div    class="company-block">
+    <div  class="company-intro">
+      <h4 class="company-name">2U</h4>
+      <h4 class="company-location">Lanham, MD (Remote)</h4>
+    </div>
+    <p  class="company-subheading">parent company of edX</p>
+    <div class="role">
+      <div class="dot"></div>
+      <h5  class="role-title">Senior Instructional Specialist</h5>
+      <div class="role-dates">Oct 2021 - Aug 2024</div>
+      <ul  class="role-points">
+        <li>Provided expertise in computer security, artificial intelligence, and data and financial analytics and visualization tools and technologies</li>
+        <li>Provided Tier-2 technical support, along with troubleshooting and configuration assistance for computer- and software-related issues</li>
+        <li>Delivered training sessions to instructional specialists and facilitated the coordination of day-to-day operations</li>
+        <li>Performed quality assurance checks in cooperation with curriculum engineering and development</li>
+        <li>Achieved a comprehensive student engagement score of 5.0/5 from 1 out of every 2 students supported, based on more than 2000 instructional sessions (written feedback on LinkedIn)</li>
+      </ul>
+    </div>
+    <div class="role">
+      <div class="dot"></div>
+      <h5  class="role-title">Cybersecurity Instructional Specialist</h5>
+      <div class="role-dates">Jul 2021 - Oct 2021</div>
+    </div>
+    <div class="first role">
+      <div class="dot"></div>
+      <h5  class="role-title">Cybersecurity Teaching Assistant</h5>
+      <div class="role-dates">May 2020 - Jul 2021</div>
+      <ul  class="role-points">
+        <li>Cybersecurity TA at the University of Pennsylvania's College of Liberal and Professional Studies</li>
+        <li>Assisted students with cybersecurity and financial technologies concepts, tools, and techniques</li>
+        <li>Provided guidance and support in troubleshooting technical issues during lab sessions</li>
+        <li>Collaborated with instructors to develop curriculum materials and update course content</li>
+        <li>Evaluated student assignments and final projects</li>
+      </ul>
+    </div>
   </div>
 
-  <!--+----------------------------------------------------------------------------------------------------
-      |
-      |    resume
-      |
-      +---------------------------------------------------------------------------------------------------->
-  <main class="resume">
-
-    <!--+--------------------------------------------------
-        |
-        |    Dark Mode
-        |
-        +-------------------------------------------------->
-    <button id="theme-toggle" class="buttons btn-download theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-      <span class="icon-sun"  aria-hidden="true">☀︎</span>
-      <span class="icon-moon" aria-hidden="true">☾</span>
-    </button>
-
-    <!--+--------------------------------------------------
-        |
-        |    Download
-        |
-        +-------------------------------------------------->
-    <div class="buttons">
-      <a class="btn-download" href="./assets/pdf/resume.pdf" download="resume.pdf" aria-label="Download PDF">Download</a>
-      <a class="btn-download" onclick="printResume('simplified')">Print</a>
+  <div    class="company-block">
+    <div  class="company-intro">
+      <h4 class="company-name">Penn State University</h4>
+      <h4 class="company-location">State College, PA</h4>
     </div>
-
-    <!--+--------------------------------------------------
-        |
-        |    Q1 - upper left - PROFILE PIC
-        |
-        +-------------------------------------------------->
-    <div class="top left q1">
-      <img id="portrait" src="./assets/img/portrait.png" alt="Dave Friedman" />
+    <div class="role">
+      <div class="dot"></div>
+      <h5  class="role-title">Enterprise Security Student Worker <span class="role-org">Office of Information Security</span></h5>
+      <div class="role-dates">Jan 2020 - Mar 2020</div>
+      <ul  class="role-points">
+        <li>Performed log analysis of university systems via Splunk SIEM</li>
+      </ul>
     </div>
-
-    <!--+--------------------------------------------------
-        |
-        |    Q2 - upper right
-        |      name
-        |      introduction
-        |
-        +-------------------------------------------------->
-    <header class="top rght q2">
-
-      <!-- NAME -->
-      <h1>
-        <span class="name_frst">Dave</span>
-        <span class="name_last">Friedman</span>
-      </h1>
-
-      <!-- INTRODUCTION -->
-      <p class="introduction">
-        Open to roles in linux system administration | network engineering and security | devops • Experience with Linux, Python, Bash • ex-edX
-      </p>
-
-      <!--+--------------------------------------------------------------------------------------------------
-          |    CONTACT (icons row + hover-reveal text) — moved from bottom-left to top-left
-          +-------------------------------------------------------------------------------------------------->
-      <section id="contact-icons" class="section contact-icons" aria-label="Contact (icons)">
-        <div class="icons-row">
-          <a class="btn-download btn-icon email"
-             href="mailto:davefriedman@pm.me"
-             aria-label="Email">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-          </a>
-
-          <a class="btn-download btn-icon linkedin"
-             href="https://linkedin.com/in/heracliteanflux"
-             target="_blank" rel="noopener"
-             aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-          </a>
-
-          <a class="btn-download btn-icon github"
-             href="https://github.com/heracliteanflux"
-             target="_blank" rel="noopener"
-             aria-label="GitHub">
-            <i class="fa-brands fa-github" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="contact-reveal" aria-live="polite" aria-atomic="true"></div>
-      </section>
-
-
-    </header>
-
-    <!--+--------------------------------------------------
-        |
-        |    Q3 - lower left
-        |      contact
-        |      skills
-        |      coursework
-        |
-        +-------------------------------------------------->
-    <div class="bot left q3">
-
-      <!--+--------------------------------------------------------------------------------------------------
-          |    CONTACT
-          +-------------------------------------------------------------------------------------------------->
-      <section class="contact section">
-        <h3 class="title">Contact</h3>
-        <ul class="skill_list description contact-list">
-          <!-- <li><a href="tel:+14846538802">484.653.8802</a> <span class="contact-label"> • Phone</span></li> -->
-          <li><a href="mailto:davefriedman@pm.me">davefriedman@pm.me</a> <span class="contact-label"> • Email</span></li>
-          <li><a href="https://linkedin.com/in/heracliteanflux">linkedin.com/in/heracliteanflux</a> <span class="contact-label"> • LinkedIn</span></li>
-          <li><a href="https://github.com/heracliteanflux">github.com/heracliteanflux</a> <span class="contact-label"> • GitHub</span></li>
-          <li><a href="https://heracliteanflux.github.io/laptoplab/">heracliteanflux.github.io/laptoplab</a> <span class="contact-label"> • GitHub Pages</span></li>
-        </ul>
-      </section>
-
-      <!--+--------------------------------------------------------------------------------------------------
-          |    SKILLS
-          +-------------------------------------------------------------------------------------------------->
-      <section class="skills section">
-        <h3 class="title">Skills</h3>
-        <ul class="skill_list description">
-          <li>Ansible network automation and configuration</li>
-          <li>Apache Spark big-data programming</li>
-          <li>Applied mathematics</li>
-          <li>Amazon Web Services cloud management</li>
-          <li>Anaconda package and environment management</li>
-          <li>Bash shell scripting and configuration</li>
-          <li>C programming</li>
-          <li>Computer networks</li>
-          <li>Data analytics and visualization</li>
-          <li>Git version control</li>
-          <li>Linux/Unix administration and hardening</li>
-          <li>Mathematics typesetting</li>
-          <li>OpenSSH authentication and remote server management</li>
-          <li>PostgreSQL relational database management</li>
-          <li>Python development</li>
-          <li>R programming</li>
-          <li>SQL</li>
-          <li>Systems administration and programming</li>
-          <li>Technical documentation</li>
-          <li>Web development</li>
-          <li>Zsh scripting and configuration</li>
-          <li>Analysis</li>
-          <li>Critical thinking</li>
-          <li>Detail orientation</li>
-          <li>Organization</li>
-          <li>Research</li>
-          <li>Japanese</li>
-          <li>Linguistics</li>
-          <li>Spanish</li>
-        </ul>
-      </section> <!-- SKILLS -->
-
-      <!--+--------------------------------------------------------------------------------------------------
-          |    COURSEWORK
-          +-------------------------------------------------------------------------------------------------->
-      <section class="skills section">
-        <h3 class="title">Coursework</h3>
-        <ul class="skill_list description">
-          <li>PSU CYBER 497 Machine Learning Security</li>
-          <li>PSU CYBER 497 Blockchain</li>
-          <li>PSU CYBER 362 Cybersecurity Analytics Studio</li>
-          <li>PSU CYBER 262 Cyber-Defense Studio</li>
-          <li>PSU CYBER 100 Computer Systems Literacy</li>
-          <li>PSU CMPSC 497 Cryptography</li>
-          <li>PSU CMPSC 465 Algorithms and Data Structures</li>
-          <li>PSU CMPSC 410 Programming Models for Big Data</li>
-          <li>PSU CMPSC 360 Discrete Mathematics for Computer Science</li>
-          <li>PSU CMPSC 311 Systems Programming</li>
-          <li>PSU CMPSC 221 Object-Oriented Programming with Web-Based Applications</li>
-          <li>PSU CMPSC 132 Programming and Computation II: Data Structures</li>
-          <li>PSU CMPSC 131 Programming and Computation I: Fundamentals</li>
-          <li>PSU CMPEN 270 Digital Design: Theory and Practice</li>
-          <li>PSU DS 220 Data Management for Data Sciences</li>
-          <li>PSU IST 451 Networking Security</li>
-          <li>PSU IST 220 Networking and Telecommunications</li>
-          <li>PSU IST 210 Organization of Data</li>
-          <li>PSU MATH 484 Linear Programming</li>
-          <li>PSU MATH 468 Mathematical Coding</li>
-          <li>PSU MATH 457 Mathematical Logic</li>
-          <li>PSU MATH 220 Matrices</li>
-        </ul>
-      </section> <!-- COURSEWORK -->
-
+    <div class="first role">
+      <div class="dot"></div>
+      <h5  class="role-title">Tutor in Mathematics and Spanish <span class="role-org">Morgan Academic Center for Student-Athletes</span></h5>
+      <div class="role-dates">2019 - 2020</div>
+      <ul  class="role-points">
+        <li>Tutored Penn State student-athletes in the Spanish language and linguistics; trigonometry; symbolic algebra; analytical geometry; and the univariable calculus</li>
+      </ul>
     </div>
+  </div>
+</section>
 
-    <!--+--------------------------------------------------
-        |
-        |    Q4 - lower right
-        |      work experience
-        |      education
-        |      projects
-        |
-        +-------------------------------------------------->
-    <div class="bot rght q4">
+<!-- EDUCATION -->
+<section>
+  <h3 class="title">Education</h3>
 
-      <!--+--------------------------------------------------------------------------------------------------
-          |    WORK
-          +-------------------------------------------------------------------------------------------------->
-      <section class="resume-section">
-        <h3 class="title">WORK EXPERIENCE</h3>
+  <div class="first role">
+    <div class="dot"></div>
+    <h5  class="role-title">Bachelor of Arts in Philosophy of Science and Math</h5>
+    <div class="role-dates">Penn State University</div>
+    <ul  class="role-points">
+      <li>Minor - Computer Science</li>
+      <li>Minor - Mathematics for IST</li>
+      <li>Minor - Linguistics</li>
+      <li>Minor - Spanish</li>
+    </ul>
+  </div>
+</section>
 
-        <div class="company-block">
-          <h4 class="company-name">2U, Lanham, MD (Remote)</h4>
-          <p class="company-sub">parent company of edX</p>
+<!-- PROJECT -->
+<section>
+  <h3 class="title">Project Work</h3>
 
-          <div class="role">
-            <div class="timeline-dot"></div>
-            <h5 class="entry-title">Senior Instructional Specialist</h5>
-            <div class="entry-dates">Oct 2021 - Aug 2024</div>
-            <ul class="entry-bullets">
-              <li>Provided expertise in computer security, artificial intelligence, and data and financial analytics and visualization tools and technologies</li>
-              <li>Provided Tier-2 technical support, along with troubleshooting and configuration assistance for computer- and software-related issues</li>
-              <li>Delivered training sessions to instructional specialists and facilitated the coordination of day-to-day operations</li>
-              <li>Performed quality assurance checks in cooperation with curriculum engineering and development</li>
-              <li>Achieved a comprehensive student engagement score of 5.0/5 from 1 out of every 2 students supported, based on more than 2000 instructional sessions (written feedback on LinkedIn)</li>
-            </ul>
-          </div>
+  <div class="first role">
+    <div class="dot"></div>
+    <h5  class="role-title">Homelab</h5>
+    <div class="role-dates">2021 – Present</div>
+    <ul  class="role-points">
+      <li>Designed, installed, configured, and manage a rack-mounted enterprise network stack; stateful firewall with L7 filtering and multigigabit IDPS; camera system with local NVR; and managed (L3) PoE++ switch</li>
+      <li>Planned and terminated Cat 6a runs to multiple APs and devices via PoE</li>
+      <li>Configure and manage VLANs for secure devices, WireGuard VPN clients, and IoT networks</li>
+      <li>Raspberry Pi cluster providing OpenSSH auth, DNS filtering, HDFS + Apache Spark, and load-balanced web services</li>
+    </ul>
+  </div>
 
-          <div class="role">
-            <div class="timeline-dot"></div>
-            <h5 class="entry-title">Cybersecurity Instructional Specialist</h5>
-            <div class="entry-dates">Jul 2021 - Oct 2021</div>
-            <ul class="entry-bullets"></ul>
-          </div>
+  <div class="first role">
+    <div class="dot"></div>
+    <h5  class="role-title">Laptop Lab</h5>
+    <div class="role-dates">2021 – Present</div>
+    <ul  class="role-points">
+      <li>Knowledge base on computer systems and applied mathematics using Jupyter Book and LaTeX</li>
+    </ul>
+  </div>
+</section>
 
-          <div class="role last">
-            <div class="timeline-dot"></div>
-            <h5 class="entry-title">Cybersecurity Teaching Assistant</h5>
-            <div class="entry-dates">May 2020 - Jul 2021</div>
-            <ul class="entry-bullets">
-              <li>Cybersecurity TA at the University of Pennsylvania's College of Liberal and Professional Studies</li>
-              <li>Assisted students with cybersecurity and financial technologies concepts, tools, and techniques</li>
-              <li>Provided guidance and support in troubleshooting technical issues during lab sessions</li>
-              <li>Collaborated with instructors to develop curriculum materials and update course content</li>
-              <li>Evaluated student assignments and final projects</li>
-            </ul>
-          </div>
-        </div>
+</div>
 
-        <div class="company-block">
-          <h4 class="company-name">Penn State University, State College, PA</h4>
-
-          <div class="role">
-            <div class="timeline-dot"></div>
-            <h5 class="entry-title">Enterprise Security Student Worker <span class="role-org">Office of Information Security</span></h5>
-            <div class="entry-dates">Jan 2020 - Mar 2020</div>
-            <ul class="entry-bullets">
-              <li>Performed log analysis of university systems via Splunk SIEM</li>
-            </ul>
-          </div>
-
-          <div class="role last">
-            <div class="timeline-dot"></div>
-            <h5 class="entry-title">Tutor in Mathematics and Spanish <span class="role-org">Morgan Academic Center for Student-Athletes</span></h5>
-            <div class="entry-dates">2019 - 2020</div>
-            <ul class="entry-bullets">
-              <li>Tutored Penn State student-athletes in the Spanish language and linguistics; trigonometry; symbolic algebra; analytical geometry; and the univariable calculus</li>
-            </ul>
-          </div>
-        </div>
-
-      </section> <!-- WORK -->
-
-      <!--+--------------------------------------------------------------------------------------------------
-          |    EDUCATION
-          +-------------------------------------------------------------------------------------------------->
-      <section class="resume-section">
-        <h3 class="title">EDUCATION</h3>
-
-        <div class="item">
-          <h5 class="entry-title">Bachelor of Arts in Philosophy of Science and Math</h5>
-          <div class="entry-dates">Penn State University</div>
-          <ul class="entry-bullets">
-            <li>Minor — Computer Science</li>
-            <li>Minor — Mathematics for IST</li>
-            <li>Minor — Linguistics</li>
-            <li>Minor — Spanish</li>
-          </ul>
-        </div>
-
-      </section> <!-- EDUCATION -->
-
-      <!--+--------------------------------------------------------------------------------------------------
-          |    PROJECT
-          +-------------------------------------------------------------------------------------------------->
-      <section class="resume-section">
-        <h3 class="title">PROJECT WORK</h3>
-
-        <div class="item">
-          <h5 class="entry-title">Homelab</h5>
-          <div class="entry-dates">2021 – Present</div>
-          <ul class="entry-bullets">
-            <li>Designed, installed, configured, and manage a rack-mounted enterprise network stack; stateful firewall with L7 filtering and multigigabit IDPS; camera system with local NVR; and managed (L3) PoE++ switch</li>
-            <li>Planned and terminated Cat 6a runs to multiple APs and devices via PoE</li>
-            <li>Configure and manage VLANs for secure devices, WireGuard VPN clients, and IoT networks</li>
-            <li>Raspberry Pi cluster providing OpenSSH auth, DNS filtering, HDFS + Apache Spark, and load-balanced web services</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <h5 class="entry-title">Laptop Lab</h5>
-          <div class="entry-dates">2021 – Present</div>
-          <ul class="entry-bullets">
-            <li>Knowledge base on computer systems and applied mathematics using Jupyter Book and LaTeX</li>
-          </ul>
-        </div>
-
-      </section> <!-- PROJECT -->
-
-    </div>
-  </main>
+</main>
 
 
-
+<!----------------------------------------------------------------------------------------------------
+ |
+ |    javascript
+ |
+ +---------------------------------------------------------------------------------------------------->
 <script>
-  /****************************************************************************************************
-   *
-   *    PRINT
-   *
-   ****************************************************************************************************/
-  function printResume (mode)
-  {
-    // document.getElementById("print-timeline").disabled   = true;
-    document.getElementById("print-simplified").disabled = true;
 
-    if (mode == "timeline")
-    {
-      document.getElementById("print-timeline").disabled = false;
-    }
-    else
-    {
-      document.getElementById("print-simplified").disabled = false;
-    }
-
-    setTimeout(() => window.print(), 100);
-  }
-
-  /****************************************************************************************************
-   *
-   *    DARK MODE
-   *
-   ****************************************************************************************************/
-  (function ()
+/**************************************************
+ *
+ *    dark mode
+ *
+ **************************************************/
+(
+  function ()
   {
     const body    = document.body;
     const toggle  = document.getElementById("theme-toggle");
     const key     = "df_theme";
-
-    // initial: saved pref -> system pref -> light
     const saved   = localStorage.getItem(key);
     const prefers = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-
     if (saved === "dark" || (saved === null && prefers))
     {
       body.classList.add("dark");
     }
-
-    toggle.addEventListener("click", () =>
-    {
+    toggle.addEventListener("click", () => {
       body.classList.toggle("dark");
       localStorage.setItem(key, body.classList.contains("dark") ? "dark" : "light");
-    });
-  })();
-</script>
+    })
+  }
+)();
 
+/**************************************************
+ *
+ *    print
+ *
+ **************************************************/
+function printResume ()
+{
+  setTimeout(() => window.print(), 100);
+}
+
+</script>
 </body>
 </html>
