@@ -3,16 +3,13 @@
 
   .buttons
   {
-    padding  : 0 0 15px 15px;
+    padding  : 0 0 40px 12px;
     position : relative;
     z-index  : none;
   }
   
   #resume {
     grid-template-columns : 1fr;
-    margin                : 1rem auto;
-    padding               : 1.2rem;
-    width                 : 100%;
   }
 
   .q1,
