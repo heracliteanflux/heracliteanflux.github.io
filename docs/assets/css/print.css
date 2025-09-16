@@ -1,0 +1,76 @@
+/* print.css — Simplified single-column */
+@media print
+{
+  html
+  {
+    margin                     : 0;
+    padding                    : 0;
+    print-color-adjust         : exact;
+    -webkit-print-color-adjust : exact;
+  }
+
+  #banner
+  {
+    display : none;
+    height  : 0px;
+    width   : 0px;
+  }
+
+  #resume
+  {
+    border-radius : 0;
+    box-shadow    : none;
+    margin        : 0;
+    max-width     : 100%;
+    padding       : 0;
+  }
+
+  section
+  {
+    break-inside : avoid;
+  }
+
+  .q1
+  {
+    height : 200px;
+    width  : 200px;
+  }
+
+  .q2 #contact-web
+  {
+    display : none;
+  }
+  .q2 #contact-print
+  {
+    display : inline-block;
+  }
+  .q2 .intro
+  {
+    margin-bottom  : 0;
+    padding-bottom : 0;
+  }
+
+  .q3 li
+  {
+    font-size : 8px;
+  }
+
+  html::before,
+  html::after,
+  body::before,
+  body::after,
+  .twinkle-layer,
+  #sun,
+  .buttons,
+  .button
+  {
+    display : none !important;
+  }
+
+  @page
+  {
+    margin  : 0;
+    padding : 0.2in 0.1in 0 0.1in;
+    size    : A4; /* or Letter */
+  }
+}
