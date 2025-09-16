@@ -32,6 +32,7 @@
 
   .q1
   {
+    grid-column : 1;
     height      : 200px;
     width       : 200px;
   }
@@ -54,6 +55,10 @@
     padding-bottom : 0;
   }
 
+  .q3
+  {
+    grid-column : 1;
+  }
   .q3 li
   {
     font-size : 8px;
