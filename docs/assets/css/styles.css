@@ -1,71 +1,60 @@
-/****************************************************************************************************
+/******************************************************************************************************************************************************
  *
- *    Imports
+ *    imports
  *
- ****************************************************************************************************/
+ ******************************************************************************************************************************************************/
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-/****************************************************************************************************
+/******************************************************************************************************************************************************
  *
- *    Variables & Theming (Light default)
+ *    variables & theme
  *
- ****************************************************************************************************/
+ ******************************************************************************************************************************************************/
 :root
 {
-  --font-family      : "UI Sans", Lato, Helvetica, Arial, sans-serif;
-  --text-color       : #333;
-  --primary-color    : #4682B4;
-  --muted-color      : #777;
-  --line-color       : #ddd;
+  --font-family           : "UI Sans", Lato, Helvetica, Arial, sans-serif;
+  --transition-fast       : 200ms;
+  --transition-slow       : 420ms;
 
-  /* work experience design */
-  --line-x           : 5px;
-  --line-width       : 1.5px;
-  --dot-size         : 10px;
+  --color-background      : #fafafa;
+  --color-primary         : #4682B4;
+  --color-text            : #333;
+  --color-text-button     : #fff;
+  --color-resume      : #ffffff;
+  --color-resume-left : #DAE7F1;
+  --color-muted           : #777;
 
-  /* Steely + ocean blues */
-  --dust-steel-1     : rgba(180,196,210,0.72);
-  --dust-steel-2     : rgba(120,140,160,0.60);
-  --dust-steel-3     : rgba(150,170,190,0.66);
+  --dust-steel-1          : rgba(180,196,210,0.72);
+  --dust-steel-2          : rgba(120,140,160,0.60);
+  --dust-steel-3          : rgba(150,170,190,0.66);
 
-  --ocean-1-core     : rgba( 36,149,214,0.70);
-  --ocean-1-halo     : rgba( 36,149,214,0.20);
-  --ocean-2-core     : rgba(  0,139,190,0.64);
-  --ocean-2-halo     : rgba(  0,139,190,0.18);
-  --ocean-deep       : rgba(  0,115,230,0.62);
+  --ocean-1-core          : rgba( 36,149,214,0.70);
+  --ocean-1-halo          : rgba( 36,149,214,0.20);
+  --ocean-2-core          : rgba(  0,139,190,0.64);
+  --ocean-2-halo          : rgba(  0,139,190,0.18);
+  --ocean-deep            : rgba(  0,115,230,0.62);
 
-  --cyan-core        : rgba( 72,173,210,0.56);
-  --cyan-halo        : rgba( 72,173,210,0.18);
-  --blue-core        : rgba( 70,130,180,0.44);
-  --blue-halo        : rgba( 70,130,180,0.14);
+  --cyan-core             : rgba( 72,173,210,0.56);
+  --cyan-halo             : rgba( 72,173,210,0.18);
+  --blue-core             : rgba( 70,130,180,0.44);
+  --blue-halo             : rgba( 70,130,180,0.14);
 
-  --far-op           : 0.50;
-  --mid-op           : 0.58;
-  --near-op          : 0.64;
-
-  --twinkle-min      : 0.34;
-  --twinkle-max      : 0.90;
-
-  --card-bg          : #ffffff;
-  --left-bg          : #DAE7F1;
-  --card-border-top  : #DAE7F1;
-  --page-bg          : #fafafa;
-
-  --btn-text         : #ffffff;
-
-  --transition-fast  : 200ms;
-  --transition-slow  : 420ms;
-
-  /* standardized section spacing (for q4 sections) */
-  --q4-section-gap   : 2.4rem;
+  --far-op                : 0.50;
+  --mid-op                : 0.58;
+  --near-op               : 0.64;
 }
 
 /* ------------------------- Dark theme overrides ------------------------- */
 body.dark
 {
-  --text-color       : #e8edf3;
-  --primary-color    : #8ec1ff;
-  --muted-color      : #a7b4c3;
+  --color-background  : #070a10;
+  --color-primary     : #8ec1ff;
+  --color-text        : #e8edf3;
+  --color-text-button : #0b1220;
+  --color-resume      : #0f141a;
+  --color-resume-left : #0d1b26;
+  --color-muted       : #a7b4c3;
+
   --line-color       : rgba(255,255,255,0.18);
 
   --dust-steel-1     : rgba(192,206,220,0.82);
@@ -90,614 +79,528 @@ body.dark
   --card-bg          : #0f141a;
   --left-bg          : #0d1b26;
   --card-border-top  : #142531;
-  --page-bg          : #070a10;
 
   --btn-text         : #0b1220;
 }
 
-/****************************************************************************************************
+/******************************************************************************************************************************************************
  *
- *    Common attributes
+ *    common attributes
  *
- ****************************************************************************************************/
+ ******************************************************************************************************************************************************/
 html
 {
-  font-size           : 10px;
+  font-family         : var(--font-family);
+  font-size           : 12px;
+  margin              : 0;
   overscroll-behavior : none; /* eliminates bouncing of the main content when attempting to scroll past the ends of the main content */
+  padding             : 0;
 }
 
-body
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
 {
-  background-color : var(--page-bg);
-  color            : var(--text-color);
-  font-family      : var(--font-family);
-  line-height      : 1.6;
-  margin           : 0;
-  padding          : 0;
-  position         : relative;
-  overflow-x       : clip;
-  transition       : background-color var(--transition-slow) ease,
-                     color            var(--transition-fast) ease;
+  margin : 0;
 }
 
 a
 {
-  color           : var(--primary-color); /* hyperlinks are not blue       by default */
+  color           : var(--color-primary); /* hyperlinks are not blue       by default */
   text-decoration : none;                 /* hyperlinks are not underlined by default */
 }
 
-/****************************************************************************************************
+/******************************************************************************************************************************************************
  *
- *    banner
+ *    
  *
- ****************************************************************************************************/
+ ******************************************************************************************************************************************************/
+body
+{
+  background-color : var(--color-background);
+  color            : var(--color-text);
+  position         : relative;
+  transition       : background-color var(--transition-slow) ease,
+                     color            var(--transition-slow) ease;
+}
+
+/******************************************************************************************************************************************************
+ *
+ *    
+ *
+ ******************************************************************************************************************************************************/
 #banner
 {
-  /* height  : fit-content; */
-  /* margin  : 0; */
-  /* padding : 0; */
-  width   : 100%;
+  width : 100%;
 }
-
 #banner h1
 {
-  /* margin     : 0; */
-  /* padding    : 0; */
-  text-align : center; /* centers banner text in the middle of the page */
+  text-align : center;
 }
 
 /****************************************************************************************************
  *
- *    Download Buttons
+ *    buttons
  *
  ****************************************************************************************************/
-.buttons
+.buttons /* div tag */
 {
-  display    : flex;
-  flex-wrap  : wrap;
-  gap        : 0.5rem;
-  position   : absolute;
-  right      : calc(12px + 28px + 8px);  /* left of the 28px toggle with 8px gap */
-  top        : 12px;
-  z-index    : 3;
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : 0.5rem;   /* provides space between buttons */
+  height    : 28px;     /* button height */
+  position  : absolute; /* buttons are superposed with other content */
+  right     : 12px;     /* right margin with respect to superposed content */
+  top       : 12px;     /* top   margin with respect to superposed content */
+  z-index   : 3;        /* buttons are superposed with other content */
 }
+/* @media (max-width : 768px) { .buttons {
+  margin-top : 1rem;
+  position   : static;
+  right      : auto;
+  top        : auto;
+}} */
 
-.btn-download
+.button /* anchor tags */
 {
-  align-items     : center;
-  background      : var(--primary-color);
-  border          : 1px solid var(--line-color);
-  border-radius   : 6px;
+  align-items     : center;                         /* centers text vertically (1/2) */
+  background      : var(--color-primary);           /* button color */
+  border          : 1px solid var(--color-primary); /* button border */
+  border-radius   : 6px;                            /* softens corners */
   box-shadow      : none;
-  color           : var(--btn-text);
+  color           : var(--color-text-button);       /* button (anchor) text color */
   cursor          : pointer;
-  display         : inline-flex;
-  font-family     : var(--font-family);
-  font-size       : 12px;
-  font-weight     : 600;
-  height          : 28px;
+  display         : inline-flex;                    /* centers text vertically (2/2) */
+  font-weight     : 600;                            /* bolder font */
   justify-content : center;
-  line-height     : 1;
-  padding         : 0 10px;
-  text-decoration : none;
-  transition      : background var(--transition-fast) ease,
-                  border-color var(--transition-fast) ease,
-                    color      var(--transition-fast) ease,
-                    transform  var(--transition-fast) ease;
+  line-height     : 1;                              /* shifts button text up a little */
+  padding         : 0 10px 0 10px;                  /* gives buttons horizontal padding */
+  /* define the speed at which animations occur */
+  transition      : background   var(--transition-slow) ease,
+                    border-color var(--transition-slow) ease,
+                    color        var(--transition-slow) ease,
+                    transform    var(--transition-slow) ease;
 }
+    .button:hover
+    {
+      background   : #1f7fb8;
+      border-color : #1f7fb8;
+      transform    : translateY(-2px);
+    }
+    .button:hover:active
+    {
+      background   : red; /* #18648f; */
+      border-color : red; /* #18648f; */
+      transform    : translateY(0);
+    }
+/* @media (max-width : 768px) { .button {
+  border      : none;
+  font-weight : 600;
+  height      : auto;
+  padding     : 0.6rem 1.2rem;
+  width       : 100%;
+}} */
 
-.btn-download:hover
+#theme-toggle /* overrides specific to the dark mode button */
 {
-  background : #1f7fb8;
-  transform  : translateY(-2px);
+  padding : 0;
+  width   : 28px; /* to make square with 28px height */
 }
-
-.btn-download:active
-{
-  background : #18648f;
-  transform  : translateY(0);
-}
-
-.theme-toggle
-{
-  position       : absolute;
-  top            : 12px;
-  right          : 12px;
-  width          : 28px;
-  height         : 28px;
-  border         : 1px solid var(--line-color);
-  background     : transparent;
-  color          : var(--text-color);
-  border-radius  : 6px;
-  display        : grid;
-  place-items    : center;
-  cursor         : pointer;
-  z-index        : 4;
-  transition     : background-color var(--transition-fast) ease,
-                   color            var(--transition-fast) ease,
-                   border-color     var(--transition-fast) ease;
-}
-
-.theme-toggle:hover
-{
-  background : rgba(0,0,0,0.05);
-}
-
-body.dark .theme-toggle:hover
-{
-  background : rgba(255,255,255,0.06);
-}
-
-.theme-toggle .icon-sun,
-.theme-toggle .icon-moon
-{
-  display     : none;
-  font-size   : 14px;
-  line-height : 1;
-}
-
-body:not(.dark) .theme-toggle .icon-moon
-{
-  display : block;
-}
-
-body.dark .theme-toggle .icon-sun
-{
-  display : block;
-}
-
-/* keep your original stacked layout on small screens */
-@media (max-width:768px)
-{
-  .download-buttons
-  {
-    position   : static;
-    right      : auto;
-    top        : auto;
-    margin-top : 1rem;
-  }
-
-  .btn-download
-  {
-    height      : auto;
-    padding     : 0.6rem 1.2rem;
-    border      : none;
-    font-weight : 600;
-    width       : 100%;
-  }
-}
+    #theme-toggle .icon-sun,
+    #theme-toggle .icon-moon
+    {
+      display     : none;
+      font-size   : 14px;
+      line-height : 1;
+    }
+    body:not(.dark) #theme-toggle .icon-moon,
+    body.dark       #theme-toggle .icon-sun
+    {
+      display : block;
+    }
 
 /****************************************************************************************************
  *
- *    Layout (Grid & Card)
+ *    contact
  *
  ****************************************************************************************************/
-.resume
-{
-  background    : var(--card-bg);
-  border-radius : 8px;
-  box-shadow    : 0 4px 10px rgba(0,0,0,0.25);
-  margin        : 4rem auto;
-  max-width     : 960px;
-  padding       : 2rem;
 
-  display               : grid;
-  gap                   : 0;
+
+/******************************************************************************************************************************************************
+ *
+ *    resume
+ *
+ ******************************************************************************************************************************************************/
+#resume
+{
+  background    : var(--color-resume);
+  border-radius : 8px;                           /* softens corners of resume */
+  box-shadow    : 0 4px 10px rgba(0,0,0,0.25); /* lifts resume off screen */
+  margin        : 4rem auto;                     /* centers resume on the screen */
+  max-width     : 960px;                         /* fit resume to standard letter size */
+  padding       : 1.5rem;                        /* resume border */
+  transition    : background-color var(--transition-slow) ease,
+                  box-shadow       var(--transition-slow) ease;
+
+  display               : grid; /* the resume will consist of 2 rows and 2 cols */
+  gap                   : 0;    /* there is no space between the rows and cols */
   grid-template-columns : 1fr 3fr;
   grid-template-rows    : 1fr auto;
 
-  position   : relative;
-  z-index    : 2;
-  transition : background-color var(--transition-slow) ease,
-               box-shadow       var(--transition-slow) ease;
+  position : relative; /* necessary in order for the top-right buttons to remain within the resume container, as opposed to moving to the top-right corner of the screen */
+  z-index  : 2;
 }
-@media (max-width:768px)
+@media (max-width : 768px) { .resume {
+  grid-template-columns : 1fr;
+  margin                : 1rem auto;
+  padding               : 1.2rem;
+  width                 : 100%;
+}}
+
+section
 {
-  .resume
-  {
-    grid-template-columns : 1fr;
-    width                 : 100%;
-  }
+  padding : 0 0 10px 0;
 }
 
-.top
-{
-}
-
-.bot
-{
-  min-height : fit-content;
-}
-
-.left
-{
-  background : var(--left-bg);
-  transition : background-color var(--transition-slow) ease;
-}
-
-.q2
-{
-  grid-column : 2/5;
-  padding     : 20px;
-}
-
-.q3
-{
-  grid-column : 1;
-  padding     : 20px;
-}
-
-.q3 ul
-{
-  color           : var(--primary-color);
-  font-size       : 1.25rem;
-  font-weight     : 375;
-  list-style-type : none;
-  margin-top      : 0;
-  padding         : 0;
-}
-
-.q4
-{
-  border-top  : solid 1px var(--card-border-top);
-  grid-column : 2/5;
-  padding     : 20px;
-  transition  : border-color var(--transition-slow) ease;
-}
-
-/****************************************************************************************************
- *
- *    Q3 & Q4
- *
- ****************************************************************************************************/
+/* section titles */
 .title
 {
-  color          : var(--primary-color);
+  color          : var(--color-primary);
   font-weight    : 600;
-  font-size      : 2.0rem;
+  font-size      : 2rem;
   letter-spacing : -0.02em;
   margin         : 0;
+  padding        : 0 0 10px 0;
   text-transform : uppercase;
   transform      : scaleY(1.1);
   transition     : color var(--transition-fast) ease;
 }
 
-/****************************************************************************************************
- *
- *    Q1 - PROFILE PICTURE
- *
- ****************************************************************************************************/
+.bot
+{
+  min-height : fit-content; /* the height of the bottom two quadrants should be as tall as the content they contain */
+}
+
+.left
+{
+  background : var(--color-resume-left);
+  transition : background-color var(--transition-slow) ease;
+}
+
 .q1
 {
-  grid-column : 1;
-  min-height  : 300px;
-  min-width   : 300px;
+  grid-column : 1;     /* column 1 */
+  height      : 300px; /* define the height of the top  two quadrants (i.e., the height of the header row) */
+  width       : 300px; /* define the width  of the left two quadrants (i.e., the width  of the side column) */
 }
 
-#portrait
+.q2
 {
-  height : 100%;
-  width  : 100%;
+  grid-column : 2/5; /* columns 2 through 5 */
+  padding     : 10px /* border specific to this quadrant */
+}
+
+.q3
+{
+  grid-column : 1;    /* column 1 */
+  padding     : 15px; /* border specific to this quadrant */
+}
+
+.q4
+{
+  border-top  : solid 1px var(--color-border-top);
+  grid-column : 2/5;                 /* columns 2 through 5 */
+  padding     : 15px;                /* border specific to this quadrant */
+  transition  : color var(--transition-slow) ease;
 }
 
 /****************************************************************************************************
  *
- *    Q2 - PROFILE INTRODUCTION
+ *    Q1
  *
  ****************************************************************************************************/
-.name_frst
+#profile-picture
 {
-  color          : var(--primary-color);
+  height : 100%; /* the profile picture takes up the entirety of Q1, which is a square */
+  width  : 100%; /* the profile picture takes up the entirety of Q1, which is a square */
+}
+
+/****************************************************************************************************
+ *
+ *    Q2
+ *
+ ****************************************************************************************************/
+.q2 .name
+{
+  color          : var(--color-primary);
   display        : block;
-  font-size      : clamp(2rem,6vw,4rem);
-  font-weight    : 400;
-  margin-bottom  : -3rem;
   text-transform : uppercase;
   transition     : color var(--transition-fast) ease;
 }
-
-.name_last
+.q2 .frst
 {
-  color          : var(--primary-color);
-  display        : block;
-  font-size      : clamp(2.5rem,8vw,7rem);
-  font-weight    : 700;
-  text-transform : uppercase;
-  transition     : color var(--transition-fast) ease;
+  font-size   : clamp(2rem,6vw,3rem);
+  font-weight : 400;
+}
+.q2 .last
+{
+  font-size   : clamp(2.5rem,8vw,5rem);
+  font-weight : 700;
+}
+.q2 .intro
+{
+  font-size   : 15px;
+  padding     : 0 0 12px 0;
 }
 
-.introduction
-{
-  font-size : 15px;
-  margin    : -20px 0 0 0;
-}
 
-.q2 .contact-icons
+
+.q2 #contact-web
 {
-  /* strings stored here to avoid JS */
   --email    : "davefriedman@pm.me";
   --linkedin : "https://linkedin.com/in/heracliteanflux";
   --github   : "https://github.com/heracliteanflux";
 
   margin-top : 12px;
 }
-
-.q2 .contact-icons .icons-row
+.q2 .icons-row /* similar to class buttons above, except there are attributes there that are specific to those buttons (i.e., their absolute position) */
 {
-  display    : flex;
-  gap        : 0.5rem;
-  align-items: center;
+  display     : flex;
+  flex-wrap   : wrap;
+  height      : 28px;
+  gap         : 0.5rem;
+}
+.q2 .button-icon
+{
+  /* padding     : 0;    square - overrides button */
+  width       : 28px; /* square */
+}
+.q2 .button-icon i
+{
+  font-size : 16px; /* size of the button icon */
 }
 
-/* square blue buttons that behave exactly like the top-right buttons */
-.btn-icon
+/* reveal the text underneat the icons */
+.q2 #contact-web .contact-reveal
 {
-  width          : 28px;                 /* match theme toggle height */
-  height         : 28px;
-  padding        : 0;                    /* square */
-  display        : grid;
-  place-items    : center;
-  border-radius  : 6px;
-  line-height    : 1;
-}
-
-.btn-icon i
-{
-  font-size : 14px;                      /* icon size harmonizes with 28px square */
-}
-
-/* reveal line under icons */
-.q2 .contact-icons .contact-reveal
-{
-  min-height : 1.25em;
-  margin-top : 6px;
-  letter-spacing : .005em;
-  opacity    : 0;
-  transform  : translateY(-2px);
-  transition : opacity var(--transition-fast) ease,
-               transform var(--transition-fast) ease;
+  letter-spacing : 0.005em;
+  margin-top     : 6px;
+  min-height     : 1.25em;
+  opacity        : 0;
   pointer-events : none;
+  transform      : translateY(-2px);
+  transition     : opacity   var(--transition-fast) ease,
+                   transform var(--transition-fast) ease;
 }
 
-/* only visible while any icon is hovered */
-.q2 .contact-icons:has(.btn-icon:hover) .contact-reveal
+.q2 #contact-web:has(.button-icon:hover) .contact-reveal
 {
   opacity   : 1;
   transform : translateY(0);
 }
 
-/* swapping content per hovered icon (no JS) */
-.q1 .contact-icons .contact-reveal::after
+/* swapping content per hovered icon, no js */
+/* .q2 #contact-web .contact-reveal::after
 {
   content : "";
   display : inline-block;
 
-  /* shine sweep via background clip */
-  background-image : linear-gradient(
-    100deg,
-    currentColor 0%, currentColor 40%,
-    #ffffff 50%,
-    currentColor 60%, currentColor 100%
-  );
+  background-image : linear-gradient(100deg, currentColor 0%, currentColor 40%, #ffffff 50%, currentColor 60%, currentColor 100%);
   -webkit-background-clip : text;
   background-clip         : text;
-  color                   : transparent;
-  background-size         : 200% 100%;
   background-position     : 0% 0%;
-  font-size               : 12px;               /* aligns with button label sizing */
+  background-size         : 200% 100%;
+  color                   : transparent;
+  font-size               : 12px;
   font-weight             : 600;
   letter-spacing          : 0.01em;
-}
+} */
 
-.q2 .contact-icons:has(.email.btn-icon:hover)    .contact-reveal::after { content: var(--email); }
-.q2 .contact-icons:has(.linkedin.btn-icon:hover) .contact-reveal::after { content: var(--linkedin); }
-.q2 .contact-icons:has(.github.btn-icon:hover)   .contact-reveal::after { content: var(--github); }
+.q2 #contact-web:has(.button-icon.email   :hover) .contact-reveal::after { content : var(--email); }
+.q2 #contact-web:has(.button-icon.linkedin:hover) .contact-reveal::after { content : var(--linkedin); }
+.q2 #contact-web:has(.button-icon.github  :hover) .contact-reveal::after { content : var(--github); }
 
-/* shine while visible */
 @keyframes contact-shine
 {
   from { background-position :   0% 0%; }
   to   { background-position : 100% 0%; }
 }
-
-.q2 .contact-icons:has(.btn-icon:hover) .contact-reveal::after
+.q2 #contact-web:has(.button-icon:hover) .contact-reveal::after
 {
   animation : contact-shine .8s ease-out;
 }
 
-@media (prefers-reduced-motion:reduce)
+@media print
 {
-  .q2 .contact-icons .contact-reveal::after { animation : none !important; }
+  .q2 #contact-web
+  {
+    display : none;
+  }
 }
 
-/****************************************************************************************************
- *    Q3 - CONTACT (bottom-left) — hide (moved to top-left so Skills/Coursework shift up)
- */
-.q3 .contact.section
+/* @media (prefers-reduced-motion:reduce)
+{
+  .q2 .contact-icons .contact-reveal::after { animation : none !important; }
+} */
+
+.q2 #contact-print
 {
   display : none;
 }
+@media print
+{
+  .q2 #contact-print
+  {
+    display : inline-block;
+  }
+}
 
 /****************************************************************************************************
  *
- *    Q3 - contact & skills
+ *    Q3
  *
  ****************************************************************************************************/
-.q3 .section /* contact, skills, coursework */
+.q3 ul
 {
-  padding-bottom : 20px;
+  color           : var(--color-primary);
+  font-size       : 1.25rem;
+  font-weight     : 375;
+  list-style-type : none; /* no bullet points */
+  margin-top      : 0;
+  padding         : 0;
 }
 
-.skill_list
+.q3 li
 {
-  margin       : 0;
-  padding-left : 1.25rem;
-}
-
-.skill_list li
-{
-  color         : var(--primary-color);
+  color         : var(--color-primary);
   font-size     : 1rem;
   font-weight   : 400;
-  margin-bottom : 0.15rem;
   line-height   : 1.5;
 }
 
-.contact-list a
-{
-  color           : var(--primary-color);
-  text-decoration : none;
-  transition      : color var(--transition-fast) ease;
-}
 
-.contact-list a:hover
-{
-  text-decoration : underline;
-}
-
-.contact-label
-{
-  font-size      : 0.95rem;
-  font-weight    : 700;
-  text-transform : uppercase;
-  letter-spacing : 0.03em;
-  color          : var(--primary-color);
-}
 
 /****************************************************************************************************
  *
  *    Q4
  *
  ****************************************************************************************************/
-.q4 .resume-section
-{
-  padding-bottom : 20px;
-}
 
-/* trim oversized trailing margins inside the last block of each section */
-.q4 .resume-section > .company-block:last-child { margin-bottom : 0 !important; }
-.q4 .resume-section > .item:last-child          { margin-bottom : 0 !important; }
-
-/****************************************************************************************************
- *    work experience
- ****************************************************************************************************/
-.entry-title
-{
-  margin         : 0;
-  font-weight    : 800;
-  text-transform : uppercase;
-  letter-spacing : 0.01em;
-}
-
-.entry-dates
-{
-  margin    : 0.1rem 0 0.6rem;
-  color     : var(--muted-color);
-  font-size : 0.95rem;
-  transition: color var(--transition-fast) ease;
-}
-
-.entry-bullets
-{
-  margin       : 0.4rem 0 0;
-  padding-left : 1.2rem;
-  color        : var(--text-color);
-  font-size    : 1.1rem;
-  line-height  : 1.55;
-}
+/* .company-block:last-child { margin-bottom : 0 !important; }
+.item:last-child          { margin-bottom : 0 !important; } */
 
 .company-block
 {
-  margin : 1rem 0 0 0;
+  margin : 0 0 10px 0;
 }
-
+.company-intro
+{
+  display        : flex;
+  color          : var(--color-text);
+  font-size      : 1.6rem;
+  letter-spacing : -0.01rem;
+  margin         : 0;
+  padding        : 0 0 5px 0;
+}
 .company-name
 {
-  margin         : 0 0 0.15rem;
-  font-size      : 1.6rem;
   font-weight    : 700;
-  color          : var(--text-color);
-  letter-spacing : -0.01em;
 }
-
-.company-sub
+.company-location
 {
-  margin     : 0 0 0.75rem;
-  color      : var(--muted-color);
-  font-style : italic;
+  font-weight    : 400;
+  padding        : 0 0 0 10px;
+}
+.company-subheading
+{
+  color      : var(--color-muted);
   font-size  : 1.15rem;
+  font-style : italic;
+  margin     : -0.5rem 0 0;
+  padding    : 0 0 5px 0;
 }
 
 .role
 {
-  margin       : 1.2rem 0 0;
-  padding-left : 2.2rem;
-  position     : relative;
+  margin   : 0.2rem 0 0;     /* buffer space above and below */
+  padding  : 0 0 0 2.2rem; /* shift blocks right */
+  position : relative;     /* necessary for the visibility of the line */
 }
-
-.role::before
+    .role::before /* the line */
+    {
+      background : var(--color-primary);
+      bottom     : -1.2rem;
+      content    : "";
+      left       : 0.8rem;
+      position   : absolute;
+      top        : 0.6rem;
+      width      : 2px;
+    }
+    .role.first::before
+    {
+      background : none;
+    }
+    .dot
+    {
+      background    : var(--color-primary);              /* dot color */
+      border-radius : 50%;                               /* dot circularity */
+      box-shadow    : 0 0 0 3px rgba(70,130,180,0.18); /* dot glow */
+      height        : 12px;                              /* dot diameter */
+      left          : 0.375rem;                          /* dot horizontal placement */
+      position      : absolute;
+      top           : 2.5px;                             /* dot vertical placement */
+      transition    : background var(--transition-fast) ease;
+      width         : 12px;                              /* dot diameter */
+    }
+.role-title
 {
-  background : var(--primary-color); /* line color */
-  bottom     : -1.2rem;
-  content    : "";
-  left       : 0.8rem;
-  position   : absolute;
-  top        : 0.6rem;
-  width      : var(--line-width);    /* line width */
+  color          : var(--color-primary);
+  font-size      : 1.2rem;
+  font-weight    : 800;
+  letter-spacing : 0.1em;
+  margin         : 0;
+  padding        : 0 0 2.5px 0; /* buffer space below */
+  text-transform : uppercase;
 }
-
-.role.last::before
+.role-dates
 {
-  background : none;
+  color          : var(--color-muted);
+  font-size      : 1.1rem;
+  font-weight    : 400;
+  letter-spacing : 0.1em;
+  padding        : 0 0 5px 0; /* buffer space below */
+  text-transform : uppercase;
 }
-
-.role .timeline-dot
+.role-points
 {
-  background    : var(--primary-color);              /* dot color */
-  border-radius : 50%;                               /* dot */
-  box-shadow    : 0 0 0 3px rgba(70,130,180,0.18); /* dot glow */
-  height        : 12px;                              /* dot diameter */
-  left          : 0.3rem;                            /* dot horizontal placement */
-  position      : absolute;
-  /* top           : 0; */
-  /* transition    : background var(--transition-fast) ease; */
-  width         : 12px;                              /* dot diameter */
+  color       : var(--color-text);
+  font-size   : 1.1rem;
+  line-height : 1.25;           /* buffer space between points */
+  margin      : 0;
+  padding     : 0 0 5px 1.2rem; /* buffer space below, and to the left of the block of points */
 }
 
-/****************************************************************************************************
- *    education & projects
- ****************************************************************************************************/
-.item
-{
-  margin : 1.2rem 0 0;
-}
-
-.item + .item
-{
-  margin-top : 1.4rem;
-}
-
-
-
-/****************************************************************************************************
+/******************************************************************************************************************************************************
  *
- *    Background Dust — dense fields, transform-based drift (no jumps)
- *        (unchanged motion; colors adapt via CSS variables above)
+ *    background
  *
- ****************************************************************************************************/
+ ******************************************************************************************************************************************************/
 html::before,
 html::after,
 body::before,
 body::after
 {
+  background-repeat : repeat;
   content           : "";
-  position          : fixed;
   inset             : -30vh -30vw;
   pointer-events    : none;
+  position          : fixed;
   transform         : translateZ(0);
   will-change       : transform, opacity;
   z-index           : 1;
-  background-repeat : repeat;
 }
 
 /* FAR A */
@@ -836,20 +739,15 @@ body::after
   100% { transform : translate(320px, 300px); }
 }
 
-
-
-/****************************************************************************************************
- *    Twinkle overlays — denser, independent glow + transform drift
- *        (unchanged; opacity responds to theme variables)
- ****************************************************************************************************/
+/* Twinkle overlays — denser, independent glow + transform drift */
 .twinkle-layer
 {
-  position        : fixed;
   inset           : -30vh -30vw;
-  pointer-events  : none;
-  z-index         : 1;
-  will-change     : transform, opacity;
   mix-blend-mode  : normal;
+  pointer-events  : none;
+  position        : fixed;
+  will-change     : transform, opacity;
+  z-index         : 1;
 }
 
 /* Tiny, very dense */
@@ -1062,10 +960,7 @@ body.dark body::before  { background-position : -14px -10px,  16px -14px, -23px 
 body.dark body::after   { background-position : -16px  -8px,  18px -12px, -21px -16px,  12px -20px, -15px -25px,
                                                      10px -29px, -13px -34px; }
 
-/****************************************************************************************************
- *    Sun orb (bottom-left elliptical orbit — unchanged)
- ****************************************************************************************************/
-#bg-sun
+#sun
 {
   position       : fixed;
   left           : 50%;
@@ -1101,75 +996,4 @@ body.dark body::after   { background-position : -16px  -8px,  18px -12px, -21px 
   75%  { transform : translate(-50%, -50%) translate(-28vw, 36vh) rotate( -2deg) scale(1.00); filter : blur(0.7px);  opacity : 0.86; }
   87.5%{ transform : translate(-50%, -50%) translate(-33vw, 26vh) rotate( -8deg) scale(0.91); filter : blur(1.0px);  opacity : 0.80; }
   100% { transform : translate(-50%, -50%) translate(-34vw, 12vh) rotate(-12deg) scale(0.84); filter : blur(1.4px);  opacity : 0.74; }
-}
-
-
-/****************************************************************************************************
- *
- *    Responsive
- *
- ****************************************************************************************************/
-@media (max-width:700px)
-{
-  .company-name { font-size : 1.45rem; }
-  .role         { padding-left : 2rem; }
-  .role .timeline-dot { left : 0.35rem; }
-  .role::before       { left : 0.75rem; }
-}
-
-@media (max-width:768px)
-{
-  .resume { padding : 1.2rem; margin : 1rem auto; }
-
-  .q1, .q2, .q3, .q4 { grid-column : 1; }
-
-  .q1 img { min-width : 0; height : auto; max-height : 32vh; object-fit : cover; }
-
-  .title { font-size : 1.8rem; }
-
-  .skill_list { padding-left : 1rem; }
-  .skill_list li { margin-bottom : 0.3rem; }
-
-  .download-buttons { gap : 0.4rem; }
-  .contact-list a { word-break : break-word; }
-}
-
-@media (max-width:420px)
-{
-  .download-buttons .btn-download { width : 100%; text-align : center; }
-  .name_frst { margin-bottom : -2rem; }
-}
-
-@media (max-width:768px)
-{
-  .resume
-  {
-    grid-template-columns : 1fr;
-    padding               : 1.2rem;
-    margin                : 1rem auto;
-  }
-
-  .q1, .q2, .q3, .q4
-  {
-    grid-column : 1;
-  }
-}
-
-/****************************************************************************************************
- *
- *    Accessibility & Print
- *
- ****************************************************************************************************/
-@media (prefers-reduced-motion:reduce)
-{
-  html::before,
-  html::after,
-  body::before,
-  body::after,
-  .twinkle-layer
-  {
-    animation             : none !important;
-    background-attachment : fixed;
-    opacity               : 0.45;
-  }
 }
