@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @media (max-width : 480px) {
 
   .buttons
@@ -31,3 +32,39 @@
   }
 
 }
+||||||| 12d625b
+=======
+@media (max-width : 480px) {
+
+  .buttons
+  {
+    padding  : 0 0 15px 15px;
+    position : relative;
+    z-index  : none;
+  }
+  
+  .resume {
+    grid-template-columns : 1fr;
+    margin                : 1rem auto;
+    padding               : 1.2rem;
+    width                 : 100%;
+  }
+
+  .q1,
+  .q2,
+  .q3,
+  .q4
+  {
+    grid-column : 1;
+  }
+  .q3
+  {
+    order : 2;
+  }
+  .q4
+  {
+    order : 1;
+  }
+
+}
+>>>>>>> 32f709b4e8b737489e06dfc5b45cea64969a900b
